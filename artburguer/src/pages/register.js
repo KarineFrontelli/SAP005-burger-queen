@@ -56,7 +56,7 @@ const App = () => {
           }
           response.json();
         })
-        .then(function (json) {
+        .then((json) => {
           console.log(json);
         });
     }
