@@ -5,7 +5,6 @@ import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
 import { Link, useHistory } from "react-router-dom";
 import Routes from "../router";
 
-
 const AppLogin = () => {
   <Routes />;
   const [email, setEmail] = useState("");
@@ -50,9 +49,10 @@ const AppLogin = () => {
         .then((response) => response.json())
         .then((json) => {
           console.log(json);
-          if (json.role === " salao") {
-            salaoRota();
-          }
+          const token = json.token;
+          const id = json.id;
+          const tokenUser = localStorage.setItem("token", token);
+          const idUser = localStorage.setItem("id", id);
         });
     }
   }
@@ -83,7 +83,6 @@ const AppLogin = () => {
             />
           </div>
 
-
           <div className="text-center py-4 mt-3 ">
             <MDBBtn
               className="App-btn"
@@ -94,8 +93,6 @@ const AppLogin = () => {
               Efetue login
             </MDBBtn>
           </div>
-
-
 
           <div>
             <p className="App-funcionario">Funcionário novo?</p>
