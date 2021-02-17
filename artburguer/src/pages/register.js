@@ -11,6 +11,7 @@ const App = () => {
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [role, setRole] = useState("");
+  const [msg, setMsg] = useState("");
 
   function cadastrar(event) {
     let canRegister = false;
@@ -31,7 +32,7 @@ const App = () => {
     }
 
     if (password !== passwordConfirm) {
-      alert("Password não estão iguais!");
+      setMsg("Senhas não conferem!");
     } else {
       passwordOk = true;
     }
@@ -52,12 +53,15 @@ const App = () => {
       })
         .then(function (response) {
           if (response.status === 200) {
-            alert("Cadastro efetuado com sucesso!");
+            setMsg("Cadastro efetuado com sucesso!");
           }
           response.json();
         })
         .then((json) => {
           console.log(json);
+        })
+        .catch((error) => {
+          setMsg(error.message);
         });
     }
   }
@@ -137,6 +141,10 @@ const App = () => {
             <MDBBtn color="orange" type="submit" onClick={cadastrar}>
               Criar login
             </MDBBtn>
+            {msg !== "" && <p>{`${msg}`}</p>}
+          </div>
+
+          <div>
             <MDBContainer className="App-footer">
               &copy; {new Date().getFullYear()} Projeto desenvolvido por:{" "}
               <a href="https://github.com/KarineFrontelli/">
