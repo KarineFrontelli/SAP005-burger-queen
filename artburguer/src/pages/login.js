@@ -3,16 +3,16 @@ import logo from "../img/hamburgernovo.png";
 import "../App.css";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
 import { Link, useHistory } from "react-router-dom";
-import Routes from "../router";
+import Router from "../router";
 
 const AppLogin = () => {
-  <Routes />;
+  // <Router />;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const rota = useHistory();
 
   const salaoRota = () => {
-    rota.push("./cozinha");
+    rota.push("/cozinha");
   };
 
   function login(event) {
@@ -53,6 +53,7 @@ const AppLogin = () => {
           const id = json.id;
           const tokenUser = localStorage.setItem("token", token);
           const idUser = localStorage.setItem("id", id);
+          rota.push(`/${json.role}`);
         });
     }
   }
@@ -90,7 +91,7 @@ const AppLogin = () => {
               type="submit"
               onClick={login}
             >
-              Efetue login
+              Efetue Login
             </MDBBtn>
           </div>
 
@@ -104,12 +105,13 @@ const AppLogin = () => {
 
         <div>
           <MDBContainer className="App-footerlogin">
-            &copy; {new Date().getFullYear()} Projeto desenvolvido por:
+            &copy; {new Date().getFullYear()} Projeto desenvolvido por:{" "}
             <a href="https://github.com/KarineFrontelli/" target="_blank">
-              Karine Frontelli
+              Karine Frontelli{" "}
             </a>
             e
             <a href="https://github.com/rebecaCanesin" target="_blank">
+              {" "}
               Rebeca Canesin
             </a>
           </MDBContainer>
