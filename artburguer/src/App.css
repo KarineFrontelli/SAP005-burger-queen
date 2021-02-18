@@ -1,74 +1,64 @@
 body,
 html {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  background: black;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	background: black;
+	position: fixed;
 }
 
 .App-logo {
-  width: 35%;
-  margin-left: 32%;
-  margin-right: 32%;
-  padding-bottom:5% ;
+	width: 35%;
+	margin-left: 32%;
+	margin-right: 32%;
+	padding-bottom: 5%;
 }
 
-
 .App-formInput {
-  color: white;
-  background: black;
-  margin-left: 10%;
-  margin-right: 10%;
+	color: white;
+	background: black;
+	margin-left: 10%;
+	margin-right: 10%;
 }
 
 .p {
-  margin-top: 0; 
-  margin-bottom: 1rem;
-  color: white;
-  font-size: 20px;
+	margin-top: 0;
+	margin-bottom: 1rem;
+	color: white;
+	font-size: 20px;
 }
 
 .App-text {
-  color: white;
-  font-size: 20px;
+	color: white;
+	font-size: 1rem;
 }
 .App-cadaster {
-  font-size: 20px;
-  color: white;
-  margin-left: 10%;
-  margin-right: 10%;
-  text-align: center;
+	font-size: 1rem;
+	color: white;
+	margin-left: 10%;
+	margin-right: 10%;
+	text-align: center;
 }
 
-
-
 .App-atuacao {
-  color: white;
-  font-size: 20px;
-  text-align: center;
+	color: white;
+	font-size: 20px;
+	text-align: center;
 }
 
 .App-funcionario {
-  color: white;
-  font-size: 20px;
-  text-align: center;
+	color: white;
+	font-size: 20px;
+	text-align: center;
 }
-
 .App-footer {
-  color: white;
-  padding-top: 4%;
-  text-align: center;
+	color: white;
+	padding-top: 10%;
+	text-align: center;
 }
-
-.App-footerlogin {
-  color: white;
-  padding-top: 140px;
-  text-align: center;
-}
-
 
 /* 
 .App-logo {
