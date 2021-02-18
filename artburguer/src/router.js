@@ -1,6 +1,6 @@
 import React, { useContext, createContext, useState } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import { isAuthenticated } from "./auth";
+// import { isAuthenticated } from "./auth";
 
 import AppLogin from "./pages/login.js";
 import App from "./pages/register.js";
@@ -21,18 +21,20 @@ import Cozinha from "./pages/cozinha.js";
 //   />;
 // };
 
-const Routes = () => {
+function Routes() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" exact component={AppLogin} />
-        <Route path="/register" exact component={App} />
-        <Route path="/orders" exact component={Orders} />
-        <Route path="/salao" exact component={Salao} />
-        <Route path="/cozinha" exact component={Cozinha} />
-      </Switch>
-    </BrowserRouter>
+    <div>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact component={AppLogin} />
+          <Route path="/register" exact component={App} />
+          <Route path="/orders" exact component={Orders} />
+          <Route path="/salao" exact component={Salao} />
+          <Route path="/cozinha" exact component={Cozinha} />
+        </Switch>
+      </BrowserRouter>
+    </div>
   );
-};
+}
 
 export default Routes;
