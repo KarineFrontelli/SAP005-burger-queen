@@ -7,7 +7,7 @@ html {
 	justify-content: center;
 	align-items: center;
 	background: black;
-	position: fixed;
+	/* position: fixed; */
 }
 
 .App-logo {
@@ -15,6 +15,14 @@ html {
 	margin-left: 32%;
 	margin-right: 32%;
 	padding-bottom: 5%;
+}
+
+.App-logo-header {
+	width: 30%;
+	position: fixed;
+	top:0;
+	left: 0;
+
 }
 
 .App-formInput {
@@ -29,35 +37,67 @@ html {
 	font-size: 1rem;
 }
 .App-cadaster {
-	font-size: 1rem;
+	font-size: 2rem;
 	color: white;
 	margin-left: 10%;
 	margin-right: 10%;
 	text-align: center;
+	text-decoration: underline;
 }
 
 .App-atuacao {
 	color: white;
-	font-size: 20px;
+	font-size: 25px;
 	text-align: center;
 }
 
 .App-funcionario {
+	padding-top: 10%;
 	color: white;
-	font-size: 20px;
+	font-size:25px;
 	text-align: center;
 }
 .App-footer {
+
 	color: white;
-	/* text-align: center; */
 	position:fixed;
 	bottom: 1rem;
 	margin-left: 14%;
 
 }
 
+.container-cardapio{
+	color: orange;
+}
+
 .App-cardapio-salao{
 	color: white;
+}
+
+.container-container-itens, h2{
+	color: white
+	;
+}
+
+.btn-cardapio-coffee{
+	border-radius: 5px;
+	width: 10em;
+	height: 3em;
+	
+}
+
+.btn-orange{
+	height:4rem;
+	font-size: large;
+}
+
+.btn-white{
+	height:4rem;
+	font-size: large;
+}
+
+.container-all-day{
+	grid-template-columns: 1fr 1fr minmax(160px, 1fr) ;
 }
 
 
