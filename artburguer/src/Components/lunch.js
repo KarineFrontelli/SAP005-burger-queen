@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import Header from "../Components/Header";
 
 function MenuLunch() {
   const token = localStorage.getItem("token");
@@ -24,13 +22,8 @@ function MenuLunch() {
 
   return (
     <div className="container-all-day">
-      <Header />
 
       <div className="container-cardapio">
-        <div>
-          <h1>Lanches e Bebidas</h1>
-        </div>
-
         {lunch &&
           lunch.map((item) => (
             <div className="container-itens-lunch">
