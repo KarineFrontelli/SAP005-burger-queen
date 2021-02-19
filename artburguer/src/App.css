@@ -17,6 +17,14 @@ html {
 	padding-bottom: 5%;
 }
 
+.App-logo-header {
+	width: 30%;
+	position: fixed;
+	top:0;
+	left: 0;
+
+}
+
 .App-formInput {
 	color: white;
 	background: black;
@@ -49,15 +57,30 @@ html {
 }
 .App-footer {
 	color: white;
-	/* text-align: center; */
 	position:fixed;
 	bottom: 1rem;
 	margin-left: 14%;
 
 }
 
+.container-cardapio{
+	color: orange;
+}
+
 .App-cardapio-salao{
 	color: white;
+}
+
+.container-container-itens, h2{
+	color: white
+	;
+}
+
+.btn-cardapio-coffee{
+	border-radius: 5px;
+	width: 10em;
+	height: 3em;
+	
 }
 
 

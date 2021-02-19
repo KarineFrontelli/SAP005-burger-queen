@@ -1,14 +1,9 @@
 import { render } from "@testing-library/react";
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import logo from "../img/hamburgernovo.png";
+import Header from "../Components/Header";
 
 function Breakfast() {
-  const history = useHistory();
-  const back = () => {
-    history.push("/");
-  };
-
   const token = localStorage.getItem("token");
   const [coffee, setCoffe] = useState("");
 
@@ -30,16 +25,18 @@ function Breakfast() {
 
   return (
     <div className="container-breakfast">
-      <button onClick={back}>Sair</button>
+      <Header />
 
       <div className="container-cardapio">
-        <h1>Café da manhã</h1>
+        <div>
+          <h1>Café da manhã</h1>
+        </div>
 
         {coffee &&
           coffee.map((item) => (
-            <div className="container-cardapio">
-              <h1>{item.name}</h1>
-              <h1>R${item.price},00</h1>
+            <div className="container-itens">
+              <h2>{item.name}</h2>
+              <h2>R${item.price},00</h2>
             </div>
           ))}
       </div>
