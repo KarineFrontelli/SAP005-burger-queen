@@ -7,6 +7,8 @@ import App from "./pages/register.js";
 import Orders from "./pages/orders.js";
 import Salao from "./pages/salao.js";
 import Cozinha from "./pages/cozinha.js";
+import Breakfast from "./pages/breakfast.js";
+import Lunch from "./pages/lunch.js";
 
 // const PrivateRoute = ({ component: Component, ...rest }) => {
 //   <Route
@@ -31,6 +33,8 @@ function Routes() {
           <Route path="/orders" exact component={Orders} />
           <Route path="/salao" exact component={Salao} />
           <Route path="/cozinha" exact component={Cozinha} />
+          <Route path="/breakfast" exact component={Breakfast} />
+          <Route path="/lunch" exact component={Lunch} />
         </Switch>
       </BrowserRouter>
     </div>
