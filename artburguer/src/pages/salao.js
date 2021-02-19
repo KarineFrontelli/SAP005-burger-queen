@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css";
 import logo from "../img/hamburgernovo.png";
 import { useHistory } from "react-router-dom";
+import Header from "../Components/Header";
 
 const Salao = () => {
   const history = useHistory();
@@ -14,7 +15,7 @@ const Salao = () => {
   return (
     <div>
       <div>
-        <img src={logo} className="App-logo" alt="logo" />
+        <Header />
       </div>
 
       <div className="App-cardapio-salao">
