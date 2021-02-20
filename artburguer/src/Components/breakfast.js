@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import Header from "../Components/Header";
 
 function Breakfast() {
   const token = localStorage.getItem("token");
@@ -32,13 +30,7 @@ function Breakfast() {
 
   return (
     <div className="container-breakfast">
-      <Header />
-
       <div className="container-cardapio">
-        <div>
-          <h1>Café da manhã</h1>
-        </div>
-
         {coffee &&
           coffee.map((item, index) => (
             <div
