@@ -26,8 +26,8 @@ function Breakfast() {
         {coffee &&
           coffee.map((item) => (
             <div className="container-itens">
-              <h2>{item.name}</h2>
-              <h2>R${item.price},00</h2>
+              <p>{item.name}</p>
+              <p>R${item.price},00</p>
             </div>
           ))}
       </div>
