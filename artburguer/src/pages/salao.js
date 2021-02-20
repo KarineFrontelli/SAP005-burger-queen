@@ -12,11 +12,16 @@ const Salao = () => {
   const lunch = () => {
     history.push("/lunch");
   };
+
+  const cliente = "";
+  const Mesa = "";
   return (
     <div>
       <div>
         <Header />
       </div>
+      <input placeholder="Cliente:"></input>
+      <input placeholder="N° mesa:"></input>
 
       <div className="App-cardapio-salao">
         <h1>Cardapios</h1>

@@ -10,11 +10,15 @@ const Header = () => {
   };
 
   return (
-    <header className="App-logo-header">
-      <div>
-        <button onClick={back}>Sair</button>
-      </div>
-      <img src={logo} className="App-logo" alt="logo" />
+    <header className="App-header">
+      <nav className="nav">
+        <div className="App-logo-header">
+          <button className="App-btn-back" onClick={back}>
+            Sair
+          </button>
+          <img src={logo} className="App-logo" alt="logo" />
+        </div>
+      </nav>
     </header>
   );
 };

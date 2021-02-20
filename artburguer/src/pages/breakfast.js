@@ -5,6 +5,14 @@ import Header from "../Components/Header";
 function Breakfast() {
   const token = localStorage.getItem("token");
   const [coffee, setCoffe] = useState("");
+  const [unidade, setUnidade] = useState([]);
+
+  function handleItem(item) {
+    const newArray = unidade;
+    newArray.push(item);
+    setUnidade(newArray);
+    console.log(unidade);
+  }
 
   useEffect(() => {
     fetch("https://lab-api-bq.herokuapp.com/products", {
@@ -32,9 +40,30 @@ function Breakfast() {
         </div>
 
         {coffee &&
-          coffee.map((item) => (
-            <div className="container-itens">
+          coffee.map((item, index) => (
+            <div
+              key={index}
+              onClick={(e) => {
+                // const parent = e.target.parentNode;
+                const name = item.name;
+                const objeto = {
+                  name: name,
+                };
+                handleItem(objeto);
+              }}
+              className="container-itens"
+            >
               <h2>{item.name}</h2>
+              <h2>R${item.price},00</h2>
+            </div>
+          ))}
+      </div>
+
+      <div className="container-pedidos">
+        {unidade &&
+          unidade.map((item) => (
+            <div key={Math.random()}>
+              <h2 key={Math.random()}>{item.name}</h2>
               <h2>R${item.price},00</h2>
             </div>
           ))}
@@ -43,3 +72,8 @@ function Breakfast() {
   );
 }
 export default Breakfast;
+// const logout = () => {
+//   const token  = localStorage.getItem("token");
+//   localStorage.clear()
+//   routerBack()
+// }
