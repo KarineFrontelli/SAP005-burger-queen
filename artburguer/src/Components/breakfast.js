@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 
-function Breakfast() {
+const Breakfast = () => {
   const token = localStorage.getItem("token");
   const [coffee, setCoffe] = useState("");
   const [unidade, setUnidade] = useState([]);
 
   function handleItem(item) {
-    const newArray = unidade;
-    newArray.push(item);
-    setUnidade(newArray);
+    setUnidade((prevUnidade) => [...prevUnidade, item]);
+
     console.log(unidade);
   }
 
@@ -29,43 +28,44 @@ function Breakfast() {
   }, []);
 
   return (
-    <div className="container-breakfast">
-      <div className="container-cardapio">
-        {coffee &&
-          coffee.map((item, index) => (
-            <div
-              key={index}
-              onClick={(e) => {
-                // const parent = e.target.parentNode;
-                const name = item.name;
-                const objeto = {
-                  name: name,
-                };
-                handleItem(objeto);
-              }}
-              className="container-itens"
-            >
-              <h2>{item.name}</h2>
-              <h2>R${item.price},00</h2>
-            </div>
-          ))}
-      </div>
+    <section className="container-breakfast">
+      {coffee &&
+        coffee.map((item, index) => (
+          <div
+            key={index}
+            onClick={(e) => {
+              // const parent = e.target.parentNode;
+              const name = item.name;
+              const price = item.price;
+              const objeto = {
+                name: name,
+                price: price,
+              };
+              handleItem(objeto);
+            }}
+            className="container-itens"
+          >
+            <h2>{item.name}</h2>
+            <h2>R${item.price},00</h2>
+          </div>
+        ))}
 
       <div className="container-pedidos">
-        {unidade &&
+        {console.log(unidade)}
+        {unidade.length > 0 &&
           unidade.map((item) => (
-            <div key={Math.random()}>
+            <div className="pedido" key={Math.random()}>
               <h2 key={Math.random()}>{item.name}</h2>
-              <h2>R${item.price},00</h2>
+              <h2 key={Math.random()}>R${item.price},00</h2>
             </div>
           ))}
       </div>
-    </div>
+    </section>
   );
-}
+};
 export default Breakfast;
 // const logout = () => {
 //   const token  = localStorage.getItem("token");
 //   localStorage.clear()
-//   routerBack()
+//   Back()
 // }
