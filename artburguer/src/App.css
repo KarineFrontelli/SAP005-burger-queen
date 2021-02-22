@@ -138,6 +138,11 @@ h2 {
 	border-radius: 5px;
 }
 
+.container-pedidos {
+	border: 1px solid pink;
+	
+}
+
 /* 
 .App-logo {
   height: 40vmin;
