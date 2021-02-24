@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 function MenuLunch() {
   const token = localStorage.getItem("token");
-  const [lunch, setLunch] = useState("");
+  const [menu, setmenu] = useState("");
 
   useEffect(() => {
     fetch("https://lab-api-bq.herokuapp.com/products", {
@@ -15,20 +15,22 @@ function MenuLunch() {
       .then((response) => response.json())
       .then((json) => {
         const lunch = json.filter((item) => item.type === "all-day");
-        setLunch(lunch);
-        console.log(lunch);
-      });
+        const menu = lunch.reduce((unique, item) => unique.includes(item.name) ? unique : [...unique, item.name], []);
+        
+        setmenu(menu);
+       console.log(menu);
+      }); 
   }, []);
 
   return (
     <div className="container-all-day">
 
       <div className="container-cardapio">
-        {lunch &&
-          lunch.map((item) => (
-            <div className="container-itens-lunch">
-              <p>{item.name}</p>
-              <p>R${item.price},00</p>
+        {menu &&
+          menu.map(({id, name , price}) => (
+            <div key={id}className="container-itens-lunch">
+              <h6>{name} {' '} R${price},00</h6>
+              {/* <h6>R${price},00</h6> */}
             </div>
           ))}
       </div>

@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import AllDayMenu from "../Components/all-daymenu";
+import Options from "../Components/options";
 
 
 const Orders = () =>{
@@ -13,7 +15,7 @@ const Orders = () =>{
               </nav>
           </header>
           <h1>Orders</h1>
-          <Link to='/orders'></Link>
+          <p>{<Options />}</p>
       </div>
   )
   

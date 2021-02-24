@@ -45,8 +45,8 @@ function Breakfast() {
               }}
               className="container-itens"
             >
-              <h2>{item.name}</h2>
-              <h2>R${item.price},00</h2>
+              <h6>{item.name}</h6>
+              <h6>R${item.price},00</h6>
             </div>
           ))}
       </div>
@@ -55,8 +55,8 @@ function Breakfast() {
         {unidade &&
           unidade.map((item) => (
             <div key={Math.random()}>
-              <h2 key={Math.random()}>{item.name}</h2>
-              <h2>R${item.price},00</h2>
+              <h6 key={Math.random()}>{item.name}</h6>
+              <h6>R${item.price},00</h6>
             </div>
           ))}
       </div>
