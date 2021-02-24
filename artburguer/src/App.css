@@ -110,7 +110,7 @@ html {
 
 .container-containe,
 h2 {
-	color: pink;
+	color: white;
 }
 
 .btn-cardapio-coffee {
@@ -141,6 +141,11 @@ h2 {
 .container-pedidos {
 	border: 1px solid pink;
 	
+}
+
+.App-valor-total{
+	color: orange;
+	font-size: 30px;
 }
 
 /* 

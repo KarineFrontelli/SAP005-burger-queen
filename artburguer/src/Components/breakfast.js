@@ -3,12 +3,18 @@ import React, { useEffect, useState } from "react";
 const Breakfast = () => {
   const token = localStorage.getItem("token");
   const [coffee, setCoffe] = useState("");
-  const [unidade, setUnidade] = useState([]);
+  const [produto, setProduto] = useState([]);
+  const [total, setTotal] = useState(0);
+
+  const handleEnviar = () => {
+    setTotal(produto.reduce((prevTotal, total) => prevTotal + total.price, 0));
+    return total;
+  };
 
   function handleItem(item) {
-    setUnidade((prevUnidade) => [...prevUnidade, item]);
+    setProduto((prevProduto) => [...prevProduto, item]);
 
-    console.log(unidade);
+    console.log(produto);
   }
 
   useEffect(() => {
@@ -34,7 +40,6 @@ const Breakfast = () => {
           <div
             key={index}
             onClick={(e) => {
-              // const parent = e.target.parentNode;
               const name = item.name;
               const price = item.price;
               const objeto = {
@@ -51,15 +56,23 @@ const Breakfast = () => {
         ))}
 
       <div className="container-pedidos">
-        {console.log(unidade)}
-        {unidade.length > 0 &&
-          unidade.map((item) => (
+        {console.log(produto)}
+        {produto.length > 0 &&
+          produto.map((item) => (
             <div className="pedido" key={Math.random()}>
               <h2 key={Math.random()}>{item.name}</h2>
               <h2 key={Math.random()}>R${item.price},00</h2>
             </div>
           ))}
+        <p className="App-valor-total">Valor Total: R${total},00</p>
       </div>
+      <button
+        className="btn-enviar-cozinha"
+        type="submit"
+        onClick={handleEnviar}
+      >
+        Enviar para cozinha
+      </button>
     </section>
   );
 };
