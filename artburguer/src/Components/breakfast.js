@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from "react";
 
-function Breakfast() {
+const Breakfast = () => {
   const token = localStorage.getItem("token");
   const [coffee, setCoffe] = useState("");
-  const [unidade, setUnidade] = useState([]);
+  const [produto, setProduto] = useState([]);
+  const [total, setTotal] = useState(0);
+
+  const handleEnviar = () => {
+    setTotal(produto.reduce((prevTotal, total) => prevTotal + total.price, 0));
+    return total;
+  };
 
   function handleItem(item) {
-    const newArray = unidade;
-    newArray.push(item);
-    setUnidade(newArray);
-    console.log(unidade);
+    setProduto((prevProduto) => [...prevProduto, item]);
+
+    console.log(produto);
   }
 
   useEffect(() => {
@@ -29,43 +34,51 @@ function Breakfast() {
   }, []);
 
   return (
-    <div className="container-breakfast">
-      <div className="container-cardapio">
-        {coffee &&
-          coffee.map((item, index) => (
-            <div
-              key={index}
-              onClick={(e) => {
-                // const parent = e.target.parentNode;
-                const name = item.name;
-                const objeto = {
-                  name: name,
-                };
-                handleItem(objeto);
-              }}
-              className="container-itens"
-            >
-              <h6>{item.name}</h6>
-              <h6>R${item.price},00</h6>
-            </div>
-          ))}
-      </div>
+    <section className="container-breakfast">
+      {coffee &&
+        coffee.map((item, index) => (
+          <div
+            key={index}
+            onClick={(e) => {
+              const name = item.name;
+              const price = item.price;
+              const objeto = {
+                name: name,
+                price: price,
+              };
+              handleItem(objeto);
+            }}
+            className="container-itens"
+          >
+            <h2>{item.name}</h2>
+            <h2>R${item.price},00</h2>
+          </div>
+        ))}
 
       <div className="container-pedidos">
-        {unidade &&
-          unidade.map((item) => (
-            <div key={Math.random()}>
-              <h6 key={Math.random()}>{item.name}</h6>
-              <h6>R${item.price},00</h6>
+        {console.log(produto)}
+        {produto.length > 0 &&
+          produto.map((item) => (
+            <div className="pedido" key={Math.random()}>
+              <h2 key={Math.random()}>{item.name}</h2>
+              <h2 key={Math.random()}>R${item.price},00</h2>
             </div>
           ))}
+        <p className="App-valor-total">Valor Total: R${total},00</p>
       </div>
-    </div>
+      <button
+        className="btn-enviar-cozinha"
+        type="submit"
+        onClick={handleEnviar}
+      >
+        Enviar para cozinha
+      </button>
+    </section>
   );
-}
+};
 export default Breakfast;
 // const logout = () => {
 //   const token  = localStorage.getItem("token");
 //   localStorage.clear()
-//   routerBack()
+//   Back()
 // }
