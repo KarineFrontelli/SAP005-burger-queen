@@ -5,17 +5,26 @@ const Breakfast = () => {
   const [coffee, setCoffe] = useState("");
   const [produto, setProduto] = useState([]);
   const [total, setTotal] = useState(0);
-  const [deletar, setDeletar] = useState([]);
+  // const [deletar, setDeletar] = useState([]);
   const nomeCliente = sessionStorage.getItem("cliente");
   const numeroMesa = sessionStorage.getItem("mesa");
 
-  const handleDeletar = () => {
-    setDeletar(produto.splice(produto.indexOf(total.price), 1));
-    setTotal(produto.reduce((prevTotal, total) => prevTotal + total.price, 0));
+  const handleDeletar = (index) => {
+    const ItensFiltrados = produto.filter((_, indice) => index != indice);
+    // setProduto((prevUnidade) => [].splice(produto.indexOf(total.price), 1));
+    // setTotal(produto.reduce((prevTotal, total) => prevTotal + total.price, 0));
   };
 
+  useEffect(() => {
+    const soma = produto.reduce(
+      (valorAnterior, valorAtual) => valorAnterior + valorAtual.price,
+      0
+    );
+  }, [produto]);
+
   const handleEnviar = () => {
-    setTotal(produto.reduce((prevTotal, total) => prevTotal + total.price, 0));
+    // setTotal(produto.reduce((prevTotal, total) => prevTotal + total.price, 0));
+
     fetch("https://lab-api-bq.herokuapp.com/orders", {
       method: "POST",
       headers: {
@@ -92,10 +101,17 @@ const Breakfast = () => {
       <div className="container-pedidos">
         {console.log(produto)}
         {produto.length > 0 &&
-          produto.map((item) => (
+          produto.map((item, index) => (
             <div className="pedido" key={Math.random()}>
               <h2 key={Math.random()}>{item.name}</h2>
               <h2 key={Math.random()}>R${item.price},00</h2>
+              <button
+                className="btn-deletar"
+                type="submit"
+                onClick={handleDeletar}
+              >
+                Deletar
+              </button>
             </div>
           ))}
         <p className="App-valor-total">Valor Total: R${total},00</p>
@@ -106,9 +122,6 @@ const Breakfast = () => {
         onClick={handleEnviar}
       >
         Enviar para cozinha
-      </button>
-      <button className="btn-deletar" type="submit" onClick={handleDeletar}>
-        Deletar
       </button>
     </section>
   );
