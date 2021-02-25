@@ -5,11 +5,43 @@ const Breakfast = () => {
   const [coffee, setCoffe] = useState("");
   const [produto, setProduto] = useState([]);
   const [total, setTotal] = useState(0);
+  const [deletar, setDeletar] = useState([]);
+  const nomeCliente = sessionStorage.getItem("cliente");
+  const numeroMesa = sessionStorage.getItem("mesa");
+
+  const handleDeletar = () => {
+    setDeletar(produto.splice(produto.indexOf(total.price), 1));
+    setTotal(produto.reduce((prevTotal, total) => prevTotal + total.price, 0));
+  };
 
   const handleEnviar = () => {
     setTotal(produto.reduce((prevTotal, total) => prevTotal + total.price, 0));
+    fetch("https://lab-api-bq.herokuapp.com/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        accept: "application/json",
+        Authorization: token,
+      },
+      body: JSON.stringify({
+        client: nomeCliente,
+        table: numeroMesa,
+        products: produto.map((item) => ({
+          id: Number(item.id),
+          qtd: 1,
+        })),
+      }),
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json);
+      });
     return total;
   };
+
+  // const removerProduto = () => {
+  //   setRemover(produto.splice(produto.indexOf(""), 1));
+  // };
 
   function handleItem(item) {
     setProduto((prevProduto) => [...prevProduto, item]);
@@ -42,9 +74,11 @@ const Breakfast = () => {
             onClick={(e) => {
               const name = item.name;
               const price = item.price;
+              const id = item.id;
               const objeto = {
                 name: name,
                 price: price,
+                id: id,
               };
               handleItem(objeto);
             }}
@@ -72,6 +106,9 @@ const Breakfast = () => {
         onClick={handleEnviar}
       >
         Enviar para cozinha
+      </button>
+      <button className="btn-deletar" type="submit" onClick={handleDeletar}>
+        Deletar
       </button>
     </section>
   );
