@@ -5,8 +5,14 @@ const Breakfast = () => {
   const [coffee, setCoffe] = useState("");
   const [produto, setProduto] = useState([]);
   const [total, setTotal] = useState(0);
+  const [deletar, setDeletar] = useState([]);
   const nomeCliente = sessionStorage.getItem("cliente");
   const numeroMesa = sessionStorage.getItem("mesa");
+
+  const handleDeletar = () => {
+    setDeletar(produto.splice(produto.indexOf(total.price), 1));
+    setTotal(produto.reduce((prevTotal, total) => prevTotal + total.price, 0));
+  };
 
   const handleEnviar = () => {
     setTotal(produto.reduce((prevTotal, total) => prevTotal + total.price, 0));
@@ -100,6 +106,9 @@ const Breakfast = () => {
         onClick={handleEnviar}
       >
         Enviar para cozinha
+      </button>
+      <button className="btn-deletar" type="submit" onClick={handleDeletar}>
+        Deletar
       </button>
     </section>
   );
