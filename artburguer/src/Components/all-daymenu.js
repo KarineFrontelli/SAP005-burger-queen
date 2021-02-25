@@ -15,8 +15,7 @@ useEffect(() => {
 .then((response) => response.json())
 .then((json) => {
     const lunch = json.filter((item) => item.type === "all-day");
-          // const lunch = lunch.reduce((unique, item) => unique.includes(item.name) ? unique : [...unique, item.name], []);
-    
+        
     console.log(lunch);
 }); 
 }, []);

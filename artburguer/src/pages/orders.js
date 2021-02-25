@@ -1,21 +1,16 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import AllDayMenu from "../Components/all-daymenu";
-import Options from "../Components/options";
+import OptionsDouble from "../Components/optionsDouble";
+import OptionsSimple from "../Components/optionsSimple";
 
 
 const Orders = () =>{
   return(
       <div>
-          <header>
-              <nav>
-                  <Link to='/'>Login</Link>
-                  <Link to='/register'>Cadastro</Link>
-                  <Link to='/orders'>Pedidos</Link>
-              </nav>
-          </header>
           <h1>Orders</h1>
-          <p>{<Options />}</p>
+          <p>{<OptionsSimple />}</p>
+          <p>{<OptionsDouble />}</p>
       </div>
   )
   
