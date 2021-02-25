@@ -39,10 +39,6 @@ const Breakfast = () => {
     return total;
   };
 
-  // const removerProduto = () => {
-  //   setRemover(produto.splice(produto.indexOf(""), 1));
-  // };
-
   function handleItem(item) {
     setProduto((prevProduto) => [...prevProduto, item]);
 
