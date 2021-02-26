@@ -59,7 +59,7 @@ function MenuLunch() {
   }, []);
 
   return (
-   <section className="container-breakfast">
+   <section className="container-allday">
       {menuAllday &&
         menuAllday.map((item, index) => (
           <div
