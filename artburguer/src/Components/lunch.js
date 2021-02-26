@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import OptionsDouble from "./optionsDouble";
+import OptionsSimple from "./optionsSimple";
 
 function MenuLunch() {
   const token = localStorage.getItem("token");
@@ -74,8 +76,10 @@ function MenuLunch() {
       });
   }, []);
 
+  
+
   return (
-    <section className="container-breakfast">
+   <section className="container-allday">
       {menuAllday &&
         menuAllday.map((item, index) => (
           <div
@@ -94,9 +98,12 @@ function MenuLunch() {
             className="container-itens"
           >
             <h2>{item.name}</h2>
-            <h2>R${item.price},00</h2>
+            <h2>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price)}</h2>
           </div>
         ))}
+
+        <button type="submit" onClick={<OptionsDouble/>}>TESTE</button>
+        <button type="submit" onClick={<OptionsSimple/>}>TESTE2</button>
 
       <div className="container-pedidos">
         {console.log(produto)}
@@ -104,7 +111,7 @@ function MenuLunch() {
           produto.map((item, index) => (
             <div className="pedido" key={index}>
               <h2>{item.name}</h2>
-              <h2>R${item.price},00</h2>
+              <h2>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price)}</h2>
 
               <button
                 className="btn-deletar"
@@ -115,7 +122,7 @@ function MenuLunch() {
               </button>
             </div>
           ))}
-        <p className="App-valor-total">Valor Total: R${total},00</p>
+        <p className="App-valor-total">Valor Total: {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(total)}</p>
       </div>
       <button
         className="btn-enviar-cozinha"
