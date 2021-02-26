@@ -4,16 +4,16 @@ import { useHistory } from "react-router-dom";
 import "../App.css";
 
 const Header = () => {
-  const history = useHistory();
-  const back = () => {
-    history.push("/");
+  const logout = () => {
+    const token = localStorage.getItem("token");
+    localStorage.clear();
   };
 
   return (
     <header className="App-header">
       <nav className="nav">
         <div className="App-logo-header">
-          <button className="App-btn-back" onClick={back}>
+          <button className="App-btn-back" onClick={logout}>
             Sair
           </button>
           <img src={logo} className="App-logo" alt="logo" />
