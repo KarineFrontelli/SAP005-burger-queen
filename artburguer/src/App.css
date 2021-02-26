@@ -7,7 +7,7 @@ html {
 	justify-content: center;
 	align-items: center;
 	background: black;
-	 /* position: fixed;  */
+	/* position: fixed;  */
 }
 
 .App-logo {
@@ -49,10 +49,6 @@ html {
 .App-input-cliente {
 	justify-content: space-between;
 }
-
-
-
-
 
 .App-formInput {
 	color: white;
@@ -133,19 +129,23 @@ h2 {
 	grid-template-columns: 1fr 1fr minmax(160px, 1fr);
 }
 
-.App-btn-back {
+/* .App-btn-back {
+	padding-top: 2px;
 	color: black;
-	border-radius: 5px;
-}
+	border-radius: 30px;
+} */
 
 .container-pedidos {
 	border: 1px solid pink;
-	
 }
 
-.App-valor-total{
+.App-valor-total {
 	color: orange;
 	font-size: 30px;
+}
+
+.btn-deletar {
+	background-color: white;
 }
 
 /* 
