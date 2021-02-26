@@ -31,8 +31,8 @@ const OptionsDouble = () =>{
         <h4>Hambúrguer Duplo</h4>
         <div>
             {Duplo &&
-          Duplo.map(({id , price, flavor, complement}) => (
-            <div key={id}className="container-itens-lunch">
+          Duplo.map(({index , price, flavor, complement}) => (
+            <div key={index}className="container-itens-lunch">
               <p>{flavor}</p>
               <p>{complement}</p>
               <h6>R${price},00</h6>
