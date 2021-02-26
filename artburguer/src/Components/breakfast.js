@@ -5,17 +5,24 @@ const Breakfast = () => {
   const [coffee, setCoffe] = useState("");
   const [produto, setProduto] = useState([]);
   const [total, setTotal] = useState(0);
-  const [deletar, setDeletar] = useState([]);
   const nomeCliente = sessionStorage.getItem("cliente");
   const numeroMesa = sessionStorage.getItem("mesa");
 
-  const handleDeletar = () => {
-    setDeletar(produto.splice(produto.indexOf(total.price), 1));
-    setTotal(produto.reduce((prevTotal, total) => prevTotal + total.price, 0));
+  const handleRemoveItem = (indice) => {
+    const ItensFiltrados = produto.filter((_, index) => indice != index);
+    setProduto(ItensFiltrados);
+    console.log(indice);
   };
 
+  useEffect(() => {
+    const soma = produto.reduce(
+      (valorAnterior, valorAtual) => valorAnterior + valorAtual.price,
+      0
+    );
+    setTotal(soma);
+  }, [produto]);
+
   const handleEnviar = () => {
-    setTotal(produto.reduce((prevTotal, total) => prevTotal + total.price, 0));
     fetch("https://lab-api-bq.herokuapp.com/orders", {
       method: "POST",
       headers: {
@@ -88,10 +95,18 @@ const Breakfast = () => {
       <div className="container-pedidos">
         {console.log(produto)}
         {produto.length > 0 &&
-          produto.map((item) => (
-            <div className="pedido" key={Math.random()}>
-              <h2 key={Math.random()}>{item.name}</h2>
-              <h2 key={Math.random()}>R${item.price},00</h2>
+          produto.map((item, index) => (
+            <div className="pedido" key={index}>
+              <h1>{item.name}</h1>
+              <h1>R${item.price},00</h1>
+
+              <button
+                className="btn-deletar"
+                type="submit"
+                onClick={() => handleRemoveItem(index)}
+              >
+                Excluir
+              </button>
             </div>
           ))}
         <p className="App-valor-total">Valor Total: R${total},00</p>
@@ -102,9 +117,6 @@ const Breakfast = () => {
         onClick={handleEnviar}
       >
         Enviar para cozinha
-      </button>
-      <button className="btn-deletar" type="submit" onClick={handleDeletar}>
-        Deletar
       </button>
     </section>
   );
