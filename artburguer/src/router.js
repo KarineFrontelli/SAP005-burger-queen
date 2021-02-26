@@ -7,32 +7,25 @@ import App from "./pages/register.js";
 import Orders from "./pages/orders.js";
 import Salao from "./pages/salao.js";
 import Cozinha from "./pages/cozinha.js";
-import Breakfast from "./Components/breakfast.js";
-import Lunch from "./Components/lunch.js";
-
-// const PrivateRoute = ({ component: Component, ...rest }) => {
-//   <Route
-//     {...rest}
-//     render={(props) =>
-//       isAuthenticated() ? (
-//         <Component {...props} />
-//       ) : (
-//         <Redirect to={{ pathname: "/", state: { from: props.location } }} />
-//       )
-//     }
-//   />;
-// };
 
 function Routes() {
+  const PrivateRoute = (props) => {
+    const token = localStorage.getItem('token');
+    return token ?
+      (<Route {...props}/>
+        ) : (
+          <Redirect to={{ pathname: "/", state: { from: props.location } }} />)
+};
+
   return (
     <div>
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={AppLogin} />
           <Route path="/register" exact component={App} />
-          <Route path="/orders" exact component={Orders} />
-          <Route path="/salao" exact component={Salao} />
-          <Route path="/cozinha" exact component={Cozinha} />
+          <PrivateRoute path="/orders" exact component={Orders} />
+          <PrivateRoute path="/salao" exact component={Salao} />
+          <PrivateRoute path="/cozinha" exact component={Cozinha} />
         </Switch>
       </BrowserRouter>
     </div>
