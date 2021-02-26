@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 const Breakfast = () => {
   const token = localStorage.getItem("token");
@@ -12,6 +13,22 @@ const Breakfast = () => {
     const ItensFiltrados = produto.filter((_, index) => indice != index);
     setProduto(ItensFiltrados);
     console.log(indice);
+  };
+
+  const handleAdicionaItem = (index) => {
+    let newArrayProduto = [...produto];
+    newArrayProduto[index].qtd++;
+    newArrayProduto[index].price =
+      newArrayProduto[index].initialPrice * newArrayProduto[index].qtd;
+    setProduto(newArrayProduto);
+  };
+
+  const handleRemoverItem = (index) => {
+    let newArrayProduto = [...produto];
+    newArrayProduto[index].qtd--;
+    newArrayProduto[index].price =
+      newArrayProduto[index].initialPrice * newArrayProduto[index].qtd;
+    setProduto(newArrayProduto);
   };
 
   useEffect(() => {
@@ -48,7 +65,6 @@ const Breakfast = () => {
 
   function handleItem(item) {
     setProduto((prevProduto) => [...prevProduto, item]);
-
     console.log(produto);
   }
 
@@ -73,22 +89,31 @@ const Breakfast = () => {
       {coffee &&
         coffee.map((item, index) => (
           <div
+            className="container-itens"
             key={index}
             onClick={(e) => {
               const name = item.name;
               const price = item.price;
               const id = item.id;
+              const qtd = 1;
+              const initialPrice = item.price;
               const objeto = {
-                name: name,
-                price: price,
-                id: id,
+                name,
+                price,
+                id,
+                qtd,
+                initialPrice,
               };
               handleItem(objeto);
             }}
-            className="container-itens"
           >
             <h2>{item.name}</h2>
-            <h2>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price)}</h2>
+            <h2>
+              {Intl.NumberFormat("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              }).format(item.price)}
+            </h2>
           </div>
         ))}
 
@@ -98,18 +123,44 @@ const Breakfast = () => {
           produto.map((item, index) => (
             <div className="pedido" key={index}>
               <h1>{item.name}</h1>
-              <h1>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price)}</h1>
+              <h1>{item.qtd}</h1>
+              <h1>
+                {Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(item.price)}
+              </h1>
+              <button
+                className="btn-adicionar"
+                type="submit"
+                onClick={() => handleAdicionaItem(index)}
+              >
+                +
+              </button>
+              <button
+                className="btn-remover"
+                type="submit"
+                onClick={() => handleRemoverItem(index)}
+              >
+                -
+              </button>
 
               <button
                 className="btn-deletar"
                 type="submit"
                 onClick={() => handleRemoveItem(index)}
               >
-                Excluir
+                {<DeleteIcon />}
               </button>
             </div>
           ))}
-        <p className="App-valor-total">Valor Total: {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(total)}</p>
+        <p className="App-valor-total">
+          Valor Total:{" "}
+          {Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          }).format(total)}
+        </p>
       </div>
       <button
         className="btn-enviar-cozinha"

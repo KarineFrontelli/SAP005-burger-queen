@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import OptionsDouble from "./optionsDouble";
 import OptionsSimple from "./optionsSimple";
-import DeleteIcon from '@material-ui/icons/Delete';
-import { makeStyles } from '@material-ui/core/styles';
+import DeleteIcon from "@material-ui/icons/Delete";
+import { makeStyles } from "@material-ui/core/styles";
 
 function MenuLunch() {
   const token = localStorage.getItem("token");
@@ -16,6 +16,22 @@ function MenuLunch() {
     const ItensFiltrados = produto.filter((_, index) => indice != index);
     setProduto(ItensFiltrados);
     console.log(indice);
+  };
+
+  const handleAdicionaItem = (index) => {
+    let newArrayProduto = [...produto];
+    newArrayProduto[index].qtd++;
+    newArrayProduto[index].price =
+      newArrayProduto[index].initialPrice * newArrayProduto[index].qtd;
+    setProduto(newArrayProduto);
+  };
+
+  const handleRemoverItem = (index) => {
+    let newArrayProduto = [...produto];
+    newArrayProduto[index].qtd--;
+    newArrayProduto[index].price =
+      newArrayProduto[index].initialPrice * newArrayProduto[index].qtd;
+    setProduto(newArrayProduto);
   };
 
   useEffect(() => {
@@ -78,10 +94,8 @@ function MenuLunch() {
       });
   }, []);
 
-  
-
   return (
-   <section className="container-allday">
+    <section className="container-allday">
       {menuAllday &&
         menuAllday.map((item, index) => (
           <div
@@ -90,17 +104,26 @@ function MenuLunch() {
               const name = item.name;
               const price = item.price;
               const id = item.id;
+              const qtd = 1;
+              const initialPrice = item.price;
               const objeto = {
-                name: name,
-                price: price,
-                id: id,
+                name,
+                price,
+                id,
+                qtd,
+                initialPrice,
               };
               handleItem(objeto);
             }}
             className="container-itens"
           >
             <h2>{item.name}</h2>
-            <h2>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price)}</h2>
+            <h2>
+              {Intl.NumberFormat("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              }).format(item.price)}
+            </h2>
           </div>
         ))}
 
@@ -110,7 +133,26 @@ function MenuLunch() {
           produto.map((item, index) => (
             <div className="pedido" key={index}>
               <h2>{item.name}</h2>
-              <h2>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price)}</h2>
+              <h2>
+                {Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(item.price)}
+              </h2>
+              <button
+                className="btn-adicionar"
+                type="submit"
+                onClick={() => handleAdicionaItem(index)}
+              >
+                +
+              </button>
+              <button
+                className="btn-remover"
+                type="submit"
+                onClick={() => handleRemoverItem(index)}
+              >
+                -
+              </button>
 
               <button
                 className="btn-deletar"
@@ -121,7 +163,13 @@ function MenuLunch() {
               </button>
             </div>
           ))}
-        <p className="App-valor-total">Valor Total: {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(total)}</p>
+        <p className="App-valor-total">
+          Valor Total:{" "}
+          {Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          }).format(total)}
+        </p>
       </div>
       <button
         className="btn-enviar-cozinha"
