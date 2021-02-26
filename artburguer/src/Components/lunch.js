@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import OptionsDouble from "./optionsDouble";
 import OptionsSimple from "./optionsSimple";
+import DeleteIcon from '@material-ui/icons/Delete';
+import { makeStyles } from '@material-ui/core/styles';
 
 function MenuLunch() {
   const token = localStorage.getItem("token");
@@ -102,9 +104,6 @@ function MenuLunch() {
           </div>
         ))}
 
-        <button type="submit" onClick={<OptionsDouble/>}>TESTE</button>
-        <button type="submit" onClick={<OptionsSimple/>}>TESTE2</button>
-
       <div className="container-pedidos">
         {console.log(produto)}
         {produto.length > 0 &&
@@ -118,7 +117,7 @@ function MenuLunch() {
                 type="submit"
                 onClick={() => handleRemoveItem(index)}
               >
-                Excluir
+                {<DeleteIcon />}
               </button>
             </div>
           ))}
