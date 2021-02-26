@@ -122,8 +122,3 @@ const Breakfast = () => {
   );
 };
 export default Breakfast;
-// const logout = () => {
-//   const token  = localStorage.getItem("token");
-//   localStorage.clear()
-//   Back()
-// }
