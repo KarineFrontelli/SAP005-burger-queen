@@ -88,7 +88,7 @@ const Breakfast = () => {
             className="container-itens"
           >
             <h2>{item.name}</h2>
-            <h2>R${item.price},00</h2>
+            <h2>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price)}</h2>
           </div>
         ))}
 
@@ -98,7 +98,7 @@ const Breakfast = () => {
           produto.map((item, index) => (
             <div className="pedido" key={index}>
               <h1>{item.name}</h1>
-              <h1>R${item.price},00</h1>
+              <h1>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price)}</h1>
 
               <button
                 className="btn-deletar"
@@ -109,7 +109,7 @@ const Breakfast = () => {
               </button>
             </div>
           ))}
-        <p className="App-valor-total">Valor Total: R${total},00</p>
+        <p className="App-valor-total">Valor Total: {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(total)}</p>
       </div>
       <button
         className="btn-enviar-cozinha"
