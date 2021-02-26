@@ -5,14 +5,13 @@ const Breakfast = () => {
   const [coffee, setCoffe] = useState("");
   const [produto, setProduto] = useState([]);
   const [total, setTotal] = useState(0);
-  // const [deletar, setDeletar] = useState([]);
   const nomeCliente = sessionStorage.getItem("cliente");
   const numeroMesa = sessionStorage.getItem("mesa");
 
-  const handleDeletar = (index) => {
-    const ItensFiltrados = produto.filter((_, indice) => index != indice);
-    // setProduto((prevUnidade) => [].splice(produto.indexOf(total.price), 1));
-    // setTotal(produto.reduce((prevTotal, total) => prevTotal + total.price, 0));
+  const handleRemoveItem = (indice) => {
+    const ItensFiltrados = produto.filter((_, index) => indice != index);
+    setProduto(ItensFiltrados);
+    console.log(indice);
   };
 
   useEffect(() => {
@@ -20,11 +19,10 @@ const Breakfast = () => {
       (valorAnterior, valorAtual) => valorAnterior + valorAtual.price,
       0
     );
+    setTotal(soma);
   }, [produto]);
 
   const handleEnviar = () => {
-    // setTotal(produto.reduce((prevTotal, total) => prevTotal + total.price, 0));
-
     fetch("https://lab-api-bq.herokuapp.com/orders", {
       method: "POST",
       headers: {
@@ -98,15 +96,16 @@ const Breakfast = () => {
         {console.log(produto)}
         {produto.length > 0 &&
           produto.map((item, index) => (
-            <div className="pedido" key={Math.random()}>
-              <h2 key={Math.random()}>{item.name}</h2>
-              <h2 key={Math.random()}>R${item.price},00</h2>
+            <div className="pedido" key={index}>
+              <h1>{item.name}</h1>
+              <h1>R${item.price},00</h1>
+
               <button
                 className="btn-deletar"
                 type="submit"
-                onClick={handleDeletar}
+                onClick={() => handleRemoveItem(index)}
               >
-                Deletar
+                Excluir
               </button>
             </div>
           ))}
