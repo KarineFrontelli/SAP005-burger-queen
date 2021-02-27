@@ -1,7 +1,7 @@
 import React from "react";
-import logo from "../img/hamburgernovo.png";
+import logo from "../../img/hamburgernovo.png";
 import { useHistory } from "react-router-dom";
-import "../App.css";
+import "../../App.css";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 const Header = () => {

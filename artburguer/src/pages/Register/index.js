@@ -1,9 +1,9 @@
 import { React, useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
-import logo from "../img/hamburgernovo.png";
-import "../App.css";
+import logo from "../../img/hamburgernovo.png";
+import "../../App.css";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
-import Footer from "../Components/Footer";
+import Footer from "../../Components/Footer";
 
 const App = () => {
   const [name, setName] = useState("");

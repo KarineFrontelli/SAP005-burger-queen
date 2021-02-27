@@ -1,8 +1,8 @@
 import { useRadioGroup } from "@material-ui/core";
 import React from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
-import Footer from "../Components/Footer";
-import Header from "../Components/Header";
+import Footer from "../../Components/Footer";
+import Header from "../../Components/Header";
 
 const WelcomePage = ()=> {
     const history = useHistory();
