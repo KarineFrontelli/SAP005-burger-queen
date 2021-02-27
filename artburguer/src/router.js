@@ -1,13 +1,11 @@
 import React, { useContext, createContext, useState } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-// import { isAuthenticated } from "./auth";
-
-import AppLogin from "./pages/login.js";
-import App from "./pages/register.js";
-import Orders from "./pages/orders.js";
-import Salao from "./pages/salao.js";
-import Cozinha from "./pages/cozinha.js";
-import WelcomePage from "./pages/welcome.js";
+import AppLogin from "./pages/Login/index";
+import App from "./pages/Register/index";
+import Orders from "./pages/Orders/index";
+import Salao from "./pages/Lounge/index";
+import Cozinha from "./pages/Kitchen/index";
+import WelcomePage from "./pages/Transition/index";
 
 function Routes() {
   const PrivateRoute = (props) => {
