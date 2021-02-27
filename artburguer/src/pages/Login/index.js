@@ -63,6 +63,8 @@ const AppLogin = () => {
 
             <div className="App-formInput">
               <MDBInput
+                className="p-3 mb-2 bg-transparent text-white"
+                size="lg"
                 label="Email *"
                 icon="envelope"
                 group
@@ -73,6 +75,9 @@ const AppLogin = () => {
                 onChange={(event) => setEmail(event.target.value)}
               />
               <MDBInput
+                className="p-3 mb-2 bg-transparent text-white"
+                color="white"
+                size="lg"
                 label="Senha *"
                 icon="lock"
                 group

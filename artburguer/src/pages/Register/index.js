@@ -15,6 +15,11 @@ const App = () => {
   const [msg, setMsg] = useState("");
   const rota = useHistory();
 
+  const back = useHistory();
+  const backLogin = () => {
+    back.push("/");
+  };
+
   function cadastrar(event) {
     event.preventDefault();
     let canRegister = false;
@@ -59,7 +64,7 @@ const App = () => {
         .then(function (response) {
           if (response.status === 200) {
             setMsg("Cadastro efetuado com sucesso!");
-            <Link to="/"></Link>;
+            backLogin();
           }
           response.json();
         })
@@ -81,6 +86,8 @@ const App = () => {
             <div className="App-formInput">
               <div>
                 <MDBInput
+                  className="p-3 mb-2 bg-transparent text-white"
+                  size="lg"
                   label="Nome *"
                   icon="user"
                   group
@@ -92,16 +99,18 @@ const App = () => {
                 />
               </div>
               <MDBInput
+                className="p-3 mb-2 bg-transparent text-white"
+                size="lg"
                 label="Email *"
                 icon="envelope"
-                group
                 type="email"
-                validate
                 error="wrong"
                 success="right"
                 onChange={(event) => setEmail(event.target.value)}
               />
               <MDBInput
+                className="p-3 mb-2 bg-transparent text-white"
+                size="lg"
                 label="Confirme seu email *"
                 icon="exclamation-triangle"
                 group
@@ -112,6 +121,8 @@ const App = () => {
                 onChange={(event) => setEmailConfirm(event.target.value)}
               />
               <MDBInput
+                className="p-3 mb-2 bg-transparent text-white"
+                size="lg"
                 label="Senha *"
                 icon="lock"
                 group
@@ -120,6 +131,8 @@ const App = () => {
                 onChange={(event) => setPassword(event.target.value)}
               />
               <MDBInput
+                className="p-3 mb-2 bg-transparent text-white"
+                size="lg"
                 label="Confirme sua senha *"
                 icon="exclamation-triangle"
                 group
