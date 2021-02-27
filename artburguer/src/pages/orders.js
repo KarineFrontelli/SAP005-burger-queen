@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import AllDayMenu from "../Components/all-daymenu";
-import OptionsDouble from "../Components/optionsDouble";
-import OptionsSimple from "../Components/optionsSimple";
+import OptionsDouble from "../Components/burguer";
+import OptionsSimple from "../Components/side";
 
 
 const Orders = () =>{

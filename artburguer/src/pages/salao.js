@@ -8,6 +8,7 @@ import MenuLunch from "../Components/lunch";
 import Breakfast from "../Components/breakfast";
 import OptionsBurguer from "../Components/burguer";
 import OptionsSide from "../Components/side";
+import AllDayMenu from "../Components/all-daymenu";
 
 const Salao = () => {
   const token = localStorage.getItem("token");
@@ -16,6 +17,9 @@ const Salao = () => {
   const [sideMenu, setSideMenu] = useState(false);
   const [cliente, setCliente] = useState("");
   const [mesa, setMesa] = useState("");
+  const [Side,setSide] = useState("");
+  const [burguer,setBurguer] = useState("");
+
 
   function breakfastClick() {
     setBeakfastMenu(!breakfastMenu);
@@ -101,7 +105,10 @@ const Salao = () => {
     console.log(produto);
   }
 
-
+  function side(){
+    const Side = AllDayMenu.filter((item) => item.sub_type === "side");
+    setSide(Side);
+  };
 
   return (
     <div>
@@ -155,7 +162,7 @@ const Salao = () => {
       <div className="container-cardapio">
         {breakfastMenu ? <Breakfast /> : null}
         {lunchMenu ? <MenuLunch /> : null}
-        {sideMenu ? <OptionsSide /> : null}
+        {sideMenu ? side : null}
       </div>
 
       <div className="container-pedidos">
