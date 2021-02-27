@@ -2,7 +2,7 @@ import React , {useState, useEffect}from "react";
 
 
 
-const OptionsDouble = () =>{
+const OptionsBurguer = () =>{
 
     const token = localStorage.getItem("token");
     const [lunch, setlunch] = useState("");
@@ -20,8 +20,9 @@ const OptionsDouble = () =>{
     .then((json) => {
         const lunch = json.filter((item) => item.type === "all-day");  
         setlunch(lunch);
-        const Duplo = lunch.filter((item) => item.name === "Hambúrguer duplo");
+        const Duplo = lunch.filter((item) => item.sub_type === "hamburguer");
         setDuplo(Duplo);
+        console.log(lunch);
     });
     }, []);
     
@@ -44,4 +45,4 @@ const OptionsDouble = () =>{
   
 };
 
-export default OptionsDouble;
+export default OptionsBurguer;

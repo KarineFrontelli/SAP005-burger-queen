@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React , {useState, useEffect}from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
-import { makeStyles } from "@material-ui/core/styles";
 
-function MenuLunch() {
-  const token = localStorage.getItem("token");
-  const [menuAllday, setMenuAllday] = useState("");
-  const [produto, setProduto] = useState([]);
+
+const OptionsSide = () =>{
+
+   
+        const token = localStorage.getItem("token");
+        const [lunch, setlunch] = useState("");
+        const [Simples, setSimples] = useState("");
+        const [produto, setProduto] = useState([]);
   const [total, setTotal] = useState(0);
   const nomeCliente = sessionStorage.getItem("cliente");
   const numeroMesa = sessionStorage.getItem("mesa");
@@ -71,28 +74,43 @@ function MenuLunch() {
     console.log(produto);
   }
 
-  useEffect(() => {
-    fetch("https://lab-api-bq.herokuapp.com/products", {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization: `${token}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((json) => {
-        const lunch = json.filter((item) => item.type === "all-day");  
+        useEffect(() => {
+            fetch("https://lab-api-bq.herokuapp.com/products", {
+            method: "GET",
+            headers: {
+            accept: "application/json",
+            Authorization: `${token}`,
+            },
+        })
+        .then((response) => response.json())
+        .then((json) => {
+            const lunch = json.filter((item) => item.type === "all-day");  
+            setlunch(lunch);
+            const Simples = lunch.filter((item) => item.sub_type === "side");
+            setSimples(Simples);
+        });
+        }, []);
         
-        const menuAllday = lunch.filter((item) => item.sub_type === "hamburguer");
-        setMenuAllday(menuAllday);
-        console.log(menuAllday);
-      });
-  }, []);
+  return(
+  //   <div>
+  //       <h4>Acompanhamentos e Bebidas</h4>
+  //       <div>
+  //           {Simples &&
+  //         Simples.map(({index , price, name}) => (
+  //           <div key={index}className="container-itens-lunch">
+  //             <h6>{name}</h6>
+  //             <h6>{Intl.NumberFormat("pt-BR", {
+  //                 style: "currency",
+  //                 currency: "BRL",
+  //               }).format(price)}</h6>
+  //           </div>))}
+  //       </div>  
+  //   </div>
+  // )
 
-  return (
-    <section className="container-allday">
-      {menuAllday &&
-        menuAllday.map((item, index) => (
+  <section className="container-allday">
+      {Simples &&
+        Simples.map((item, index) => (
           <div
             key={index}
             onClick={(e) => {
@@ -175,5 +193,8 @@ function MenuLunch() {
       </button>
     </section>
   );
-}
-export default MenuLunch;
+  
+  
+};
+
+export default OptionsSide;
