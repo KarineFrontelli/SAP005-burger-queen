@@ -1,10 +1,10 @@
 import React , {useState, useEffect}from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 import "../App.css";
-import Header from "../Components/Header";
-import MenuLunch from "../Components/Burguer";
-import Breakfast from "../Components/Breakfast";
-import OptionsSide from "../Components/SideAndDrinks";
+import Header from "../../Components/Header";
+import MenuLunch from "../../Components/Burguer";
+import Breakfast from "../../Components/Breakfast";
+import OptionsSide from "../../Components/SideAndDrinks";
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 
