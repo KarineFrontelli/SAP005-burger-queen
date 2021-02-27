@@ -1,14 +1,12 @@
 import React , {useState, useEffect}from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 import "../App.css";
-import logo from "../img/hamburgernovo.png";
-import { useHistory } from "react-router-dom";
 import Header from "../Components/Header";
-import MenuLunch from "../Components/lunch";
-import Breakfast from "../Components/breakfast";
-import OptionsBurguer from "../Components/burguer";
-import OptionsSide from "../Components/side";
-import AllDayMenu from "../Components/all-daymenu";
+import MenuLunch from "../Components/Burguer";
+import Breakfast from "../Components/Breakfast";
+import OptionsSide from "../Components/SideAndDrinks";
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 
 const Salao = () => {
   const token = localStorage.getItem("token");
@@ -108,7 +106,7 @@ const Salao = () => {
   
 
   return (
-    <div>
+    <>
       <div>
         <Header />
       </div>
@@ -131,33 +129,36 @@ const Salao = () => {
       </div>
       
 
-      <div className="App-cardapio-salao">
+      <div className="App-cardapio-titulo">
         <h1>Cardápios</h1>
       </div>
+      <div className="App-cardapio-btns">
+        <Button
+          className="btn-cardapio"
+          type="submit"
+          onClick={breakfastClick}
+          
+        >
+          Café da manhã
+        </Button>
 
-      <button
-        className="btn-cardapio"
-        type="submit"
-        onClick={breakfastClick}
-      >
-        Café da manhã
-      </button>
+        <Button
+          className="btn-cardapio"
+          type="submit"
+          onClick={lunchClick}
+        >
+          Hambúrgueres
+        </Button>
 
-      <button
-        className="btn-cardapio"
-        type="submit"
-        onClick={lunchClick}
-      >
-        Hambúrgueres
-      </button>
-
-      <button
-        className="btn-cardapio"
-        type="submit"
-        onClick={sideClick}
-      >
-        Acompanhamentos e Bebidas
-      </button>
+        <Button
+          className="btn-cardapio"
+          type="submit"
+          onClick={sideClick}
+        >
+          Acompanhamentos e Bebidas
+        </Button>
+      </div>
+      
 
       <div className="container-cardapio">
         {breakfastMenu ? <Breakfast /> : null}
@@ -192,13 +193,14 @@ const Salao = () => {
                 -
               </button>
 
-              <button
+              <IconButton
+                aria-label="delete"
                 className="btn-deletar"
                 type="submit"
                 onClick={() => handleRemoveItem(index)}
               >
-                {<DeleteIcon />}
-              </button>
+              <DeleteIcon />
+              </IconButton>
             </div>
           ))}
         <p className="App-valor-total">
@@ -216,7 +218,7 @@ const Salao = () => {
       >
         Enviar para cozinha
       </button>
-    </div>
+    </>
   );
 };
 export default Salao;

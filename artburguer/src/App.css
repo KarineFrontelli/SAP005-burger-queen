@@ -1,13 +1,8 @@
-body,
-html {
-	height: 100%;
-	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
+body {
+	margin: 0;
+    padding:0;
+    box-sizing: border-box;
 	background: #2E3234;
-	/* position: fixed;  */
 }
 
 .App-logo {
@@ -84,7 +79,7 @@ html {
 }
 .App-footer {
 	color: white;
-	position: fixed;
+	position: relative;
 	bottom: 1rem;
 	margin-left: 14%;
 }
@@ -116,14 +111,20 @@ h2 {
 	display: block;
 }
 
+.App-cardapio-btns{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	
+	align-content: space-between;
+}
+
 .btn-cardapio {
+	flex: 1;
 	border-radius: 5px;
 	width: 10em;
 	height: 3em;
 	margin: 5px;
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
 }
 
 .btn-orange, .btn-white {
