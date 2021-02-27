@@ -8,6 +8,7 @@ import MenuLunch from "../Components/lunch";
 import Breakfast from "../Components/breakfast";
 import OptionsBurguer from "../Components/burguer";
 import OptionsSide from "../Components/side";
+import AllDayMenu from "../Components/all-daymenu";
 
 const Salao = () => {
   const token = localStorage.getItem("token");
@@ -16,6 +17,9 @@ const Salao = () => {
   const [sideMenu, setSideMenu] = useState(false);
   const [cliente, setCliente] = useState("");
   const [mesa, setMesa] = useState("");
+  const [side,setSide] = useState("");
+  const [burguer,setBurguer] = useState("");
+
 
   function breakfastClick() {
     setBeakfastMenu(!breakfastMenu);
@@ -101,35 +105,38 @@ const Salao = () => {
     console.log(produto);
   }
 
-
+  
 
   return (
     <div>
       <div>
         <Header />
       </div>
-      <input
-        type="text"
-        className="App-cliente"
-        placeholder="Cliente:"
-        value={cliente}
-        onChange={(event) => setCliente(event.target.value)}
-      ></input>
-      <input
-        type="text"
-        className="App-mesa"
-        placeholder="Mesa:"
-        value={mesa}
-        placeholder="N° mesa:"
-        onChange={(event) => setMesa(event.target.value)}
-      ></input>
+      <div>
+        <input
+          type="text"
+          className="App-cliente"
+          placeholder="Cliente:"
+          value={cliente}
+          onChange={(event) => setCliente(event.target.value)}
+        ></input>
+        <input
+          type="text"
+          className="App-mesa"
+          placeholder="Mesa:"
+          value={mesa}
+          placeholder="N° mesa:"
+          onChange={(event) => setMesa(event.target.value)}
+        ></input>
+      </div>
+      
 
       <div className="App-cardapio-salao">
-        <h1>Cardapios</h1>
+        <h1>Cardápios</h1>
       </div>
 
       <button
-        className="btn-cardapio-coffee"
+        className="btn-cardapio"
         type="submit"
         onClick={breakfastClick}
       >
@@ -137,7 +144,7 @@ const Salao = () => {
       </button>
 
       <button
-        className="btn-cardapio-allday"
+        className="btn-cardapio"
         type="submit"
         onClick={lunchClick}
       >
@@ -145,7 +152,7 @@ const Salao = () => {
       </button>
 
       <button
-        className="btn-cardapio-side"
+        className="btn-cardapio"
         type="submit"
         onClick={sideClick}
       >
