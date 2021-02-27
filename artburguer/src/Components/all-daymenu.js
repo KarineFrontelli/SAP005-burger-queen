@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 
 const AllDayMenu = () =>{
-    const token = localStorage.getItem("token");
+const token = localStorage.getItem("token");
 const [lunch, setlunch] = useState("");
   
 useEffect(() => {

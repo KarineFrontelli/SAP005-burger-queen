@@ -17,7 +17,7 @@ const Salao = () => {
   const [sideMenu, setSideMenu] = useState(false);
   const [cliente, setCliente] = useState("");
   const [mesa, setMesa] = useState("");
-  const [Side,setSide] = useState("");
+  const [side,setSide] = useState("");
   const [burguer,setBurguer] = useState("");
 
 
@@ -105,38 +105,38 @@ const Salao = () => {
     console.log(produto);
   }
 
-  function side(){
-    const Side = AllDayMenu.filter((item) => item.sub_type === "side");
-    setSide(Side);
-  };
+  
 
   return (
     <div>
       <div>
         <Header />
       </div>
-      <input
-        type="text"
-        className="App-cliente"
-        placeholder="Cliente:"
-        value={cliente}
-        onChange={(event) => setCliente(event.target.value)}
-      ></input>
-      <input
-        type="text"
-        className="App-mesa"
-        placeholder="Mesa:"
-        value={mesa}
-        placeholder="N° mesa:"
-        onChange={(event) => setMesa(event.target.value)}
-      ></input>
+      <div>
+        <input
+          type="text"
+          className="App-cliente"
+          placeholder="Cliente:"
+          value={cliente}
+          onChange={(event) => setCliente(event.target.value)}
+        ></input>
+        <input
+          type="text"
+          className="App-mesa"
+          placeholder="Mesa:"
+          value={mesa}
+          placeholder="N° mesa:"
+          onChange={(event) => setMesa(event.target.value)}
+        ></input>
+      </div>
+      
 
       <div className="App-cardapio-salao">
-        <h1>Cardapios</h1>
+        <h1>Cardápios</h1>
       </div>
 
       <button
-        className="btn-cardapio-coffee"
+        className="btn-cardapio"
         type="submit"
         onClick={breakfastClick}
       >
@@ -144,7 +144,7 @@ const Salao = () => {
       </button>
 
       <button
-        className="btn-cardapio-allday"
+        className="btn-cardapio"
         type="submit"
         onClick={lunchClick}
       >
@@ -152,7 +152,7 @@ const Salao = () => {
       </button>
 
       <button
-        className="btn-cardapio-side"
+        className="btn-cardapio"
         type="submit"
         onClick={sideClick}
       >
@@ -162,7 +162,7 @@ const Salao = () => {
       <div className="container-cardapio">
         {breakfastMenu ? <Breakfast /> : null}
         {lunchMenu ? <MenuLunch /> : null}
-        {sideMenu ? side : null}
+        {sideMenu ? <OptionsSide /> : null}
       </div>
 
       <div className="container-pedidos">

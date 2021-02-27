@@ -1,8 +1,33 @@
 import React, { useEffect, useState } from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { makeStyles } from "@material-ui/core/styles";
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
 function MenuLunch() {
+
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      flexGrow: 1,
+      textAlign: 'center',
+    },
+    paper: {
+      padding: theme.spacing(1),
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
+    },
+  }));
+  const classes = useStyles();
+  function FormRow() {
+    return (
+      <React.Fragment>
+        <Grid item xs={4}>
+          <Paper className={classes.paper}></Paper>
+        </Grid>
+      </React.Fragment>
+    );
+  }
+
   const token = localStorage.getItem("token");
   const [menuAllday, setMenuAllday] = useState("");
   const [produto, setProduto] = useState([]);
@@ -91,6 +116,12 @@ function MenuLunch() {
 
   return (
     <section className="container-allday">
+      <div className={classes.root}>
+      <Grid container spacing={1}>
+        <Grid container item xs={9} spacing={5}>
+          
+        
+        
       {menuAllday &&
         menuAllday.map((item, index) => (
           <div
@@ -112,22 +143,28 @@ function MenuLunch() {
             }}
             className="container-itens"
           >
-            <h2>{item.name}</h2>
-            <h2>
+            <p>{item.name}</p>
+            <p>{item.flavor}</p>
+            <p>{item.complement}</p>
+            <p>
               {Intl.NumberFormat("pt-BR", {
                 style: "currency",
                 currency: "BRL",
               }).format(item.price)}
-            </h2>
+            </p>
           </div>
         ))}
-
+        </Grid>
+      </Grid>
+      </div>
       <div className="container-pedidos">
         {console.log(produto)}
         {produto.length > 0 &&
           produto.map((item, index) => (
             <div className="pedido" key={index}>
               <h2>{item.name}</h2>
+              <h2>{item.flavor}</h2>
+              <h2>{item.complement}</h2>
               <h2>
                 {Intl.NumberFormat("pt-BR", {
                   style: "currency",

@@ -6,7 +6,7 @@ html {
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	background: black;
+	background: #2E3234;
 	/* position: fixed;  */
 }
 
@@ -22,15 +22,15 @@ html {
 
 	/* margin-left: 32%;
     margin-right: 32%; */
-	padding-bottom: 5%;
+	/* padding-bottom: 5%; */
 }
 
 .App-header {
 	padding: 0.5rem, 0;
-	position: fixed;
+	position: relative;
 	width: 100%;
-	height: 4rem;
-	background: white;
+	/* height: 4rem; */
+	background: #F2CA52;
 
 	top: 0;
 	left: 0;
@@ -52,7 +52,7 @@ html {
 
 .App-formInput {
 	color: white;
-	background: black;
+	background: none;
 	margin-left: 10%;
 	margin-right: 10%;
 }
@@ -96,9 +96,11 @@ html {
 	color: orange;
 } */
 
-.App-cardapio-salao {
+/* .App-cardapio-salao {
 	color: white;
-}
+	display: flex;
+	align-items: center;
+} */
 
 .container-cardapio {
 	border-color: orange;
@@ -109,25 +111,29 @@ h2 {
 	color: white;
 }
 
-.btn-cardapio-coffee {
+.container-itens{
+	background-color: #F2CA52;
+	display: block;
+}
+
+.btn-cardapio {
 	border-radius: 5px;
 	width: 10em;
 	height: 3em;
+	margin: 5px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
 }
 
-.btn-orange {
+.btn-orange, .btn-white {
 	height: 4rem;
 	font-size: large;
 }
 
-.btn-white {
-	height: 4rem;
-	font-size: large;
-}
-
-.container-all-day {
+/* .container-all-day {
 	grid-template-columns: 1fr 1fr minmax(160px, 1fr);
-}
+} */
 
 /* .App-btn-back {
 	padding-top: 2px;
