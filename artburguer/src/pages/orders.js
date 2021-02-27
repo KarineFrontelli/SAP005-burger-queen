@@ -9,8 +9,7 @@ const Orders = () =>{
   return(
       <div>
           <h1>Orders</h1>
-          <p>{<OptionsSimple />}</p>
-          <p>{<OptionsDouble />}</p>
+         
       </div>
   )
   
