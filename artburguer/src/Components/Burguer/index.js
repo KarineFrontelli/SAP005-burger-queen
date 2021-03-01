@@ -1,35 +1,11 @@
 import React, { useEffect, useState } from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
-import { makeStyles } from "@material-ui/core/styles";
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import IconButton from '@material-ui/core/IconButton';
 
 function MenuLunch() {
 
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      flexGrow: 1,
-      textAlign: 'center',
-    },
-    paper: {
-      padding: theme.spacing(1),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-    },
-  }));
-  const classes = useStyles();
-  function FormRow() {
-    return (
-      <React.Fragment>
-        <Grid item xs={4}>
-          <Paper className={classes.paper}></Paper>
-        </Grid>
-      </React.Fragment>
-    );
-  }
-
   const token = localStorage.getItem("token");
-  const [menuAllday, setMenuAllday] = useState("");
+  const [lunch, setLunch] = useState("");
   const [produto, setProduto] = useState([]);
   const [total, setTotal] = useState(0);
   const nomeCliente = sessionStorage.getItem("cliente");
@@ -107,23 +83,14 @@ function MenuLunch() {
       .then((response) => response.json())
       .then((json) => {
         const lunch = json.filter((item) => item.type === "all-day");  
-        
-        const menuAllday = lunch.filter((item) => item.sub_type === "hamburguer");
-        setMenuAllday(menuAllday);
-        console.log(menuAllday);
+        setLunch(lunch)
       });
   }, []);
 
   return (
-    <section className="container-allday">
-      <div className={classes.root}>
-      <Grid container spacing={1}>
-        <Grid container item xs={9} spacing={5}>
-          
-        
-        
-      {menuAllday &&
-        menuAllday.map((item, index) => (
+    <section className="container-allday">   
+      {lunch &&
+        lunch.map((item, index) => (
           <div
             key={index}
             onClick={(e) => {
@@ -154,9 +121,6 @@ function MenuLunch() {
             </p>
           </div>
         ))}
-        </Grid>
-      </Grid>
-      </div>
       <div className="container-pedidos">
         {console.log(produto)}
         {produto.length > 0 &&
@@ -186,13 +150,14 @@ function MenuLunch() {
                 -
               </button>
 
-              <button
+              <IconButton
+                aria-label="delete"
                 className="btn-deletar"
                 type="submit"
                 onClick={() => handleRemoveItem(index)}
               >
-                {<DeleteIcon />}
-              </button>
+                <DeleteIcon />
+              </IconButton>
             </div>
           ))}
         <p className="App-valor-total">
