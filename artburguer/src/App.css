@@ -35,6 +35,16 @@ body {
 	/* padding-bottom: 5%; */
 }
 
+.input-client-table{
+	display: flex;
+	flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+	margin-top: 10px;
+	color: white;
+}
+
 .nav {
 	height: 70px;
 
@@ -99,6 +109,8 @@ body {
 
 .container-cardapio {
 	border-color: orange;
+	width: 100%;
+	text-align: center;
 }
 
 .container-containe,
@@ -114,17 +126,14 @@ h2 {
 .App-cardapio-btns{
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap;
-	
-	align-content: space-between;
+	/* flex-wrap: nowrap; */
+	align-content: center;
+	justify-content: center;
 }
 
 .btn-cardapio {
 	flex: 1;
-	border-radius: 5px;
-	width: 10em;
-	height: 3em;
-	margin: 5px;
+	
 }
 
 .btn-orange, .btn-white {
@@ -151,9 +160,9 @@ h2 {
 	font-size: 30px;
 }
 
-.btn-deletar {
+/* .btn-deletar {
 	background-color: white;
-}
+} */
 
 /* 
 .App-logo {
