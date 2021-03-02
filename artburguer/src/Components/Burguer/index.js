@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from '@material-ui/core/IconButton';
+import IconButton from "@material-ui/core/IconButton";
 
 function MenuLunch() {
-
   const token = localStorage.getItem("token");
   const [lunch, setLunch] = useState("");
   const [produto, setProduto] = useState([]);
@@ -46,6 +45,9 @@ function MenuLunch() {
     fetch("https://lab-api-bq.herokuapp.com/orders", {
       method: "POST",
       headers: {
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST",
+        "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json",
         accept: "application/json",
         Authorization: token,
@@ -68,8 +70,6 @@ function MenuLunch() {
 
   function handleItem(item) {
     setProduto((prevProduto) => [...prevProduto, item]);
-
-    console.log(produto);
   }
 
   useEffect(() => {
@@ -82,13 +82,13 @@ function MenuLunch() {
     })
       .then((response) => response.json())
       .then((json) => {
-        const lunch = json.filter((item) => item.type === "all-day");  
-        setLunch(lunch)
+        const lunch = json.filter((item) => item.type === "all-day");
+        setLunch(lunch);
       });
   }, []);
 
   return (
-    <section className="container-allday">   
+    <section className="container-allday">
       {lunch &&
         lunch.map((item, index) => (
           <div
@@ -156,7 +156,7 @@ function MenuLunch() {
                 type="submit"
                 onClick={() => handleRemoveItem(index)}
               >
-                <DeleteIcon />
+                {<DeleteIcon />}
               </IconButton>
             </div>
           ))}
