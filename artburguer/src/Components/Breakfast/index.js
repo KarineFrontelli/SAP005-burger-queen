@@ -74,6 +74,9 @@ const Breakfast = () => {
     fetch("https://lab-api-bq.herokuapp.com/products", {
       method: "GET",
       headers: {
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST",
+        "Access-Control-Allow-Origin": "*",
         accept: "application/json",
         Authorization: `${token}`,
       },

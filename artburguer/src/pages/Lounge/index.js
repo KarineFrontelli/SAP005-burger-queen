@@ -3,9 +3,8 @@ import "../../App.css";
 import Header from "../../Components/Header";
 import MenuLunch from "../../Components/Burguer";
 import Breakfast from "../../Components/Breakfast";
-import ButtonBases from "../../Components/Button";
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+
 
 const Salao = () => {
   const token = localStorage.getItem("token");
@@ -50,22 +49,17 @@ const Salao = () => {
           onChange={(event) => setMesa(event.target.value)}
         />
       </div>
+
       <div className="App-cardapio-btns">
-        <Button
-          className="btn-cardapio"
-          type="submit"
-          onClick={breakfastClick} 
-        >
-          <ButtonBases />
-        </Button>
-        <Button
-          className="btn-cardapio"
-          type="submit"
-          onClick={lunchClick}
-        >
-          <ButtonBases />
-        </Button>
+        <button type="submit" onClick={breakfastClick}>
+          Café da manhã
+        </button>
+
+        <button type="submit" onClick={lunchClick}>
+          Dia Inteiro
+        </button>
       </div>
+
       <div className="container-cardapio">
         {breakfastMenu ? <Breakfast /> : null}
         {lunchMenu ? <MenuLunch /> : null}
