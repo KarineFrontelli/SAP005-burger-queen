@@ -1,15 +1,13 @@
-import React , {useState, useEffect}from "react";
+import React, { useState, useEffect } from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 import "../../App.css";
 import Header from "../../Components/Header";
 import MenuLunch from "../../Components/Burguer";
 import Breakfast from "../../Components/Breakfast";
-import IconButton from '@material-ui/core/IconButton';
+import IconButton from "@material-ui/core/IconButton";
 import ButtonBases from "../../Components/Button";
-import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
-
-
+import TextField from "@material-ui/core/TextField";
+import { makeStyles } from "@material-ui/core/styles";
 
 const Salao = () => {
   const token = localStorage.getItem("token");
@@ -18,9 +16,8 @@ const Salao = () => {
   const [sideMenu, setSideMenu] = useState(false);
   const [cliente, setCliente] = useState("");
   const [mesa, setMesa] = useState("");
-  const [side,setSide] = useState("");
-  const [burguer,setBurguer] = useState("");
-
+  const [side, setSide] = useState("");
+  const [burguer, setBurguer] = useState("");
 
   function breakfastClick() {
     setBeakfastMenu(!breakfastMenu);
@@ -39,12 +36,11 @@ const Salao = () => {
         <Header />
       </div>
       <div className="input-client-table">
-      <TextField
+        <TextField
           id="outlined-secondary"
           label="Cliente"
           variant="outlined"
           color="secondary"
-          
           placeholder="Nome do Cliente"
           value={cliente}
           onChange={(event) => setCliente(event.target.value)}
@@ -60,40 +56,21 @@ const Salao = () => {
           onChange={(event) => setMesa(event.target.value)}
         />
       </div>
-      
 
-      
       <div className="App-cardapio-btns">
-       
-        <button
-          
-          type="submit"
-          onClick={breakfastClick}
-          
-        >
-        Café da manhã
-          
+        <button type="submit" onClick={breakfastClick}>
+          Café da manhã
         </button>
 
-        <button
-          
-          type="submit"
-          onClick={lunchClick}
-        >
+        <button type="submit" onClick={lunchClick}>
           Dia Inteiro
-          
         </button>
-
-       
       </div>
-      
 
       <div className="container-cardapio">
         {breakfastMenu ? <Breakfast /> : null}
         {lunchMenu ? <MenuLunch /> : null}
       </div>
-
-      
     </>
   );
 };
