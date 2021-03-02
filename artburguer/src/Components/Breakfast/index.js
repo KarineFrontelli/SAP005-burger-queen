@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
+import IconButton from '@material-ui/core/IconButton';
+
 
 const Breakfast = () => {
   const token = localStorage.getItem("token");
@@ -107,13 +109,13 @@ const Breakfast = () => {
               handleItem(objeto);
             }}
           >
-            <h2>{item.name}</h2>
-            <h2>
+            <p>{item.name}</p>
+            <p>
               {Intl.NumberFormat("pt-BR", {
                 style: "currency",
                 currency: "BRL",
               }).format(item.price)}
-            </h2>
+            </p>
           </div>
         ))}
 
@@ -122,14 +124,14 @@ const Breakfast = () => {
         {produto.length > 0 &&
           produto.map((item, index) => (
             <div className="pedido" key={index}>
-              <h1>{item.name}</h1>
-              <h1>{item.qtd}</h1>
-              <h1>
+              <h6>{item.name}</h6>
+              <h6>{item.qtd}</h6>
+              <h6>
                 {Intl.NumberFormat("pt-BR", {
                   style: "currency",
                   currency: "BRL",
                 }).format(item.price)}
-              </h1>
+              </h6>
               <button
                 className="btn-adicionar"
                 type="submit"
@@ -145,13 +147,14 @@ const Breakfast = () => {
                 -
               </button>
 
-              <button
+              <IconButton
+                aria-label="delete"
                 className="btn-deletar"
                 type="submit"
                 onClick={() => handleRemoveItem(index)}
               >
-                {<DeleteIcon />}
-              </button>
+                <DeleteIcon />
+              </IconButton>
             </div>
           ))}
         <p className="App-valor-total">

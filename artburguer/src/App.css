@@ -96,6 +96,7 @@ body {
 
 .container-breakfast {
 	color: blue;
+	width: 100%;
 }
 /* .container-cardapio{
 	color: orange;
@@ -108,19 +109,24 @@ body {
 } */
 
 .container-cardapio {
-	border-color: orange;
-	width: 100%;
 	text-align: center;
 }
 
 .container-containe,
-h2 {
+p {
 	color: white;
+	font-weight: bold;
 }
 
 .container-itens{
 	background-color: #F2CA52;
-	display: block;
+	flex: 1;
+}
+
+.container-itens-allday{
+	background-color: #F2CA52;
+	
+
 }
 
 .App-cardapio-btns{
@@ -141,9 +147,13 @@ h2 {
 	font-size: large;
 }
 
-/* .container-all-day {
-	grid-template-columns: 1fr 1fr minmax(160px, 1fr);
-} */
+.container-all-day {
+	/* grid-template-columns: 1fr 1fr minmax(160px, 1fr); */
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
 
 /* .App-btn-back {
 	padding-top: 2px;
@@ -152,12 +162,14 @@ h2 {
 } */
 
 .container-pedidos {
-	border: 1px solid pink;
+	/* border: 1px solid pink; */
+	background-color: #97A6A6;
+	flex: 1;
 }
 
 .App-valor-total {
-	color: orange;
-	font-size: 30px;
+	color:#D9923B;
+	font-size: 20px;
 }
 
 /* .btn-deletar {

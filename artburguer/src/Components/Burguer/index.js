@@ -1,9 +1,19 @@
 import React, { useEffect, useState } from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    margin: theme.spacing(1),
+  },
+}));
 
 function MenuLunch() {
 
+  const classes = useStyles();
   const token = localStorage.getItem("token");
   const [lunch, setLunch] = useState("");
   const [produto, setProduto] = useState([]);
@@ -88,7 +98,7 @@ function MenuLunch() {
   }, []);
 
   return (
-    <section className="container-allday">   
+    <div className="container-allday">   
       {lunch &&
         lunch.map((item, index) => (
           <div
@@ -108,11 +118,10 @@ function MenuLunch() {
               };
               handleItem(objeto);
             }}
-            className="container-itens"
+            className="container-itens-allday"
           >
             <p>{item.name}</p>
-            <p>{item.flavor}</p>
-            <p>{item.complement}</p>
+            <p>{item.flavor}{" "}{item.complement}</p>
             <p>
               {Intl.NumberFormat("pt-BR", {
                 style: "currency",
@@ -126,15 +135,16 @@ function MenuLunch() {
         {produto.length > 0 &&
           produto.map((item, index) => (
             <div className="pedido" key={index}>
-              <h2>{item.name}</h2>
-              <h2>{item.flavor}</h2>
-              <h2>{item.complement}</h2>
-              <h2>
+             <h6>{item.name}</h6>
+              <h6>{item.flavor}</h6>
+              <h6>{item.complement}</h6>
+              <h6>{item.qtd}</h6>
+              <h6>
                 {Intl.NumberFormat("pt-BR", {
                   style: "currency",
                   currency: "BRL",
                 }).format(item.price)}
-              </h2>
+              </h6>
               <button
                 className="btn-adicionar"
                 type="submit"
@@ -168,14 +178,19 @@ function MenuLunch() {
           }).format(total)}
         </p>
       </div>
-      <button
-        className="btn-enviar-cozinha"
-        type="submit"
+      <Button
+        variant="contained"
+        color="primary"
+        className={classes.button}
+        // endIcon={<Icon>send</Icon>}
+        // className="btn-enviar-cozinha"
+        // type="submit"
         onClick={handleEnviar}
       >
-        Enviar para cozinha
-      </button>
-    </section>
+        Enviar 
+      </Button>
+      
+    </div>
   );
 }
 export default MenuLunch;

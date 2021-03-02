@@ -4,7 +4,7 @@ import AppLogin from "./pages/Login/index";
 import App from "./pages/Register/index";
 import Orders from "./pages/Orders/index";
 import Salao from "./pages/Lounge/index";
-import Cozinha from "./pages/Kitchen/index";
+import Cozinha from "./pages/Kitchen/index.js";
 import WelcomePage from "./pages/Transition/index";
 
 function Routes() {

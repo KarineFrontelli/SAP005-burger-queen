@@ -2,21 +2,20 @@ import React, {useState}from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
-import Breakfast from '../Breakfast';
-import MenuLunch from '../Burguer';
+
 
 
 const images = [
   {
     url: '/static/images/grid-list/breakfast.jpg',
-    title: 'Café da Manhã',
-    width: '30%',
+    title: true ,
+    width: '100%',
   },
-  {
-    url: '/static/images/grid-list/burgers.jpg',
-    title: 'Dia inteiro',
-    width: '30%',
-  },
+  // {
+  //   url: '/static/images/grid-list/burgers.jpg',
+  //   title: 'Dia inteiro',
+  //   width: '100%',
+  // },
   
 ];
 
@@ -122,7 +121,7 @@ export default function ButtonBases() {
               color="inherit"
               className={classes.imageTitle}
             >
-              {image.title}
+              {/* {image.title ? 'Café da Manhã' : 'Dia Inteiro'} */}
               <span className={classes.imageMarked} />
             </Typography>
           </span>
