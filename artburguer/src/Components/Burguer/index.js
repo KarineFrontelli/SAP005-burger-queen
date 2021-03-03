@@ -3,6 +3,8 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
+import IndeterminateCheckBoxIcon from '@material-ui/icons/IndeterminateCheckBox';
+import AddBoxIcon from '@material-ui/icons/AddBox';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -67,8 +69,11 @@ function MenuLunch() {
         client: nomeCliente,
         table: numeroMesa,
         products: produto.map((item) => ({
+          flavor: item.flavor,
+          complement: item.complement,
           id: Number(item.id),
           qtd: 1,
+          
         })),
       }),
     })
@@ -136,30 +141,31 @@ function MenuLunch() {
         {produto.length > 0 &&
           produto.map((item, index) => (
             <div className="pedido" key={index}>
-             <h6>{item.name}</h6>
-              <h6>{item.flavor}</h6>
-              <h6>{item.complement}</h6>
+             <h6>{item.name}{' '}{item.flavor}{' '}{item.complement}</h6>
+              <div>
               <h6>{item.qtd}</h6>
+              <IconButton
+                className="btn-adicionar"
+                type="submit"
+                onClick={() => handleAdicionaItem(index)}
+              >
+                <AddBoxIcon/>
+              </IconButton>
+              <IconButton
+                className="btn-remover"
+                type="submit"
+                onClick={() => handleRemoverItem(index)}
+              >
+                <IndeterminateCheckBoxIcon/>
+              </IconButton>
+              </div>
               <h6>
                 {Intl.NumberFormat("pt-BR", {
                   style: "currency",
                   currency: "BRL",
                 }).format(item.price)}
               </h6>
-              <button
-                className="btn-adicionar"
-                type="submit"
-                onClick={() => handleAdicionaItem(index)}
-              >
-                +
-              </button>
-              <button
-                className="btn-remover"
-                type="submit"
-                onClick={() => handleRemoverItem(index)}
-              >
-                -
-              </button>
+             
 
               <IconButton
                 aria-label="delete"

@@ -1,9 +1,12 @@
 import React , {useState}from "react";
+import { useHistory } from "react-router-dom";
 import "../../App.css";
 import Header from "../../Components/Header";
 import MenuLunch from "../../Components/Burguer";
 import Breakfast from "../../Components/Breakfast";
 import TextField from '@material-ui/core/TextField';
+import IconButton from '@material-ui/core/IconButton';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 
 const Salao = () => {
@@ -23,26 +26,34 @@ const Salao = () => {
     sessionStorage.setItem("cliente", cliente);
     sessionStorage.setItem("mesa", mesa);
   };
-
+  
+  const back = useHistory();
+  function BackPage(){
+    back.push("/welcome");
+  };
+  
   return (
     <>
       <div>
         <Header />
       </div>
       <div className="input-client-table">
+      <IconButton className="btn-back">
+          <ArrowBackIcon
+          onClick={BackPage}
+          />
+      </IconButton>
       <TextField
-          id="outlined-primary"
           label="Cliente"
-          variant="outlined"
+          variant="filled"
           color="primary"
           placeholder="Nome do Cliente"
           value={cliente}
           onChange={(event) => setCliente(event.target.value)}
         />
         <TextField
-          id="outlined-primary"
           label="Mesa"
-          variant="outlined"
+          variant="filled"
           color="primary"
           value={mesa}
           placeholder="N° mesa"
