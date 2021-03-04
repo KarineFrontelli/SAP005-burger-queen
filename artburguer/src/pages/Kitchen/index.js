@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import Header from "../../Components/Header";
+import { Link, useHistory } from "react-router-dom";
 
 function Cozinha() {
   const token = localStorage.getItem("token");
   const [cozinha, setCozinha] = useState("");
   const nomeCliente = sessionStorage.getItem("cliente");
   const numeroMesa = sessionStorage.getItem("mesa");
+  const rota = useHistory();
 
   useEffect(() => {
     fetch("https://lab-api-bq.herokuapp.com/orders", {
@@ -24,6 +26,7 @@ function Cozinha() {
         const cozinha = json.filter((item) => item.status === "pending");
         setCozinha(cozinha);
         console.log(cozinha);
+        rota.push("/cozinha");
       });
   }, []);
 
@@ -50,14 +53,12 @@ function Cozinha() {
       }),
     })
       .then((response) => response.json())
-      .then((json) => {
-        console.log(json);
-      });
+      .then((json) => {});
   };
   
   return (
     <>
-    <div>
+      <div>
       <Header />
     </div>
     <section className="container-cozinha">
@@ -87,10 +88,9 @@ function Cozinha() {
               </button>
             </div>
           </div>
-        ))}
-    </section>
+          ))}
+      </section>
     </>
   );
 }
-
 export default Cozinha;

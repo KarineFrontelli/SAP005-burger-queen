@@ -111,7 +111,7 @@ const Breakfast = () => {
               const name = item.name;
               const price = item.price;
               const id = item.id;
-              const qtd = 1;
+              const qtd = item.qtd;
               const initialPrice = item.price;
               const objeto = {
                 name,
