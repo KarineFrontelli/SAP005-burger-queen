@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from '@material-ui/core/IconButton';
-import IndeterminateCheckBoxIcon from '@material-ui/icons/IndeterminateCheckBox';
-import AddBoxIcon from '@material-ui/icons/AddBox';
+import IconButton from "@material-ui/core/IconButton";
+import IndeterminateCheckBoxIcon from "@material-ui/icons/IndeterminateCheckBox";
+import AddBoxIcon from "@material-ui/icons/AddBox";
+import Button from "@material-ui/core/Button";
+import Icon from "@material-ui/core/Icon";
+import { makeStyles } from "@material-ui/core/styles";
 
+const useStyles = makeStyles((theme) => ({
+  button: {
+    margin: theme.spacing(1),
+  },
+}));
 
 const Breakfast = () => {
+  const classes = useStyles();
   const token = localStorage.getItem("token");
   const [coffee, setCoffe] = useState("");
   const [produto, setProduto] = useState([]);
@@ -129,29 +138,31 @@ const Breakfast = () => {
         {produto.length > 0 &&
           produto.map((item, index) => (
             <div className="pedido" key={index}>
-              <h6>{item.name}</h6>
-              <h6>{item.qtd}</h6>
-              <h6>
+              <p>{item.name}</p>
+              <p>Qtd: {item.qtd}</p>
+              <p>
+                {""}
                 {Intl.NumberFormat("pt-BR", {
                   style: "currency",
                   currency: "BRL",
                 }).format(item.price)}
-              </h6>
+              </p>
               <IconButton
                 className="btn-adicionar"
                 type="submit"
                 onClick={() => handleAdicionaItem(index)}
               >
-                <AddBoxIcon/>
+                <AddBoxIcon />
               </IconButton>
               <IconButton
                 className="btn-remover"
                 type="submit"
                 onClick={() => handleRemoverItem(index)}
               >
-                <IndeterminateCheckBoxIcon/>
+                <IndeterminateCheckBoxIcon />
               </IconButton>
               <IconButton
+                className="btn-delete"
                 aria-label="delete"
                 className="btn-deletar"
                 type="submit"
@@ -161,21 +172,34 @@ const Breakfast = () => {
               </IconButton>
             </div>
           ))}
-        <p className="App-valor-total">
-          Valor Total:{" "}
-          {Intl.NumberFormat("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-          }).format(total)}
-        </p>
+        <div className="App-valor-total">
+          <h2>
+            Valor Total:{" "}
+            {Intl.NumberFormat("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            }).format(total)}
+          </h2>
+        </div>
       </div>
-      <button
+      {/* <button
         className="btn-enviar-cozinha"
         type="submit"
         onClick={handleEnviar}
       >
         Enviar para cozinha
-      </button>
+      </button> */}
+      <Button
+        variant="contained"
+        color="secundary"
+        className={classes.button}
+        // endIcon={<Icon>send</Icon>}
+        // className="btn-enviar-cozinha"
+        // type="submit"
+        onClick={handleEnviar}
+      >
+        Preparar
+      </Button>
     </section>
   );
 };

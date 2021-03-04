@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from '@material-ui/core/IconButton';
-import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
-import IndeterminateCheckBoxIcon from '@material-ui/icons/IndeterminateCheckBox';
-import AddBoxIcon from '@material-ui/icons/AddBox';
-import { makeStyles } from '@material-ui/core/styles';
+import IconButton from "@material-ui/core/IconButton";
+import Button from "@material-ui/core/Button";
+import Icon from "@material-ui/core/Icon";
+import IndeterminateCheckBoxIcon from "@material-ui/icons/IndeterminateCheckBox";
+import AddBoxIcon from "@material-ui/icons/AddBox";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function MenuLunch() {
-
   const classes = useStyles();
   const token = localStorage.getItem("token");
   const [lunch, setLunch] = useState("");
@@ -107,6 +106,7 @@ function MenuLunch() {
       {lunch &&
         lunch.map((item, index) => (
           <div
+            className="container-itens"
             key={index}
             onClick={(e) => {
               const name = item.name;
@@ -114,20 +114,32 @@ function MenuLunch() {
               const id = item.id;
               const qtd = 1;
               const initialPrice = item.price;
+              const complement = item.complement;
+              const flavor = item.flavor;
               const objeto = {
                 name,
                 price,
                 id,
                 qtd,
                 initialPrice,
+                complement,
+                flavor,
               };
               handleItem(objeto);
             }}
-            className="container-itens-allday"
+            className="container-itens"
           >
-            <p>{item.name}</p>
-            <p>{item.flavor}{" "}{item.complement}</p>
             <p>
+              {item.name} {item.flavor} {item.complement}
+              {""}
+            </p>
+
+            {/* <p> R${item.price}</p> */}
+
+            {/* <p>{item.flavor} </p>
+            <p>{item.complement}</p> */}
+
+            <p className="price">
               {Intl.NumberFormat("pt-BR", {
                 style: "currency",
                 currency: "BRL",
@@ -140,31 +152,32 @@ function MenuLunch() {
         {produto.length > 0 &&
           produto.map((item, index) => (
             <div className="pedido" key={index}>
-             <h6>{item.name}{' '}{item.flavor}{' '}{item.complement}</h6>
+              <h2>
+                {item.name} {item.flavor} {item.complement}
+              </h2>
               <div>
-              <h6>{item.qtd}</h6>
-              <IconButton
-                className="btn-adicionar"
-                type="submit"
-                onClick={() => handleAdicionaItem(index)}
-              >
-                <AddBoxIcon/>
-              </IconButton>
-              <IconButton
-                className="btn-remover"
-                type="submit"
-                onClick={() => handleRemoverItem(index)}
-              >
-                <IndeterminateCheckBoxIcon/>
-              </IconButton>
+                <h2>Qtd: {item.qtd}</h2>
+                <IconButton
+                  className="btn-adicionar"
+                  type="submit"
+                  onClick={() => handleAdicionaItem(index)}
+                >
+                  <AddBoxIcon />
+                </IconButton>
+                <IconButton
+                  className="btn-remover"
+                  type="submit"
+                  onClick={() => handleRemoverItem(index)}
+                >
+                  <IndeterminateCheckBoxIcon />
+                </IconButton>
               </div>
-              <h6>
+              <h2>
                 {Intl.NumberFormat("pt-BR", {
                   style: "currency",
                   currency: "BRL",
                 }).format(item.price)}
-              </h6>
-             
+              </h2>
 
               <IconButton
                 aria-label="delete"
@@ -176,29 +189,30 @@ function MenuLunch() {
               </IconButton>
             </div>
           ))}
-        <p className="App-valor-total">
-          Valor Total:{" "}
-          {Intl.NumberFormat("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-          }).format(total)}
-        </p>
+        <div className="App-valor-total">
+          <h2>
+            Valor Total:{" "}
+            {Intl.NumberFormat("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            }).format(total)}
+          </h2>
+        </div>
       </div>
       <div>
         {/* {new Date(createdAt).toLocaleString()} */}
       </div>
       <Button
         variant="contained"
-        color="primary"
+        color="secundary"
         className={classes.button}
         // endIcon={<Icon>send</Icon>}
         // className="btn-enviar-cozinha"
         type="submit"
         onClick={handleEnviar}
       >
-        Enviar 
+        Preparar
       </Button>
-      
     </section>
   );
 }
