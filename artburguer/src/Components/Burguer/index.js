@@ -68,8 +68,6 @@ function MenuLunch() {
         client: nomeCliente,
         table: numeroMesa,
         products: produto.map((item) => ({
-          flavor: item.flavor,
-          complement: item.complement,
           id: Number(item.id),
           qtd: 1,
         })),
@@ -77,9 +75,11 @@ function MenuLunch() {
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log(json);
+        const dataHora = new Date(json.createdAt).toLocaleString()
+        console.log(dataHora);
       });
     return total;
+
   };
 
   function handleItem(item) {
@@ -199,13 +199,16 @@ function MenuLunch() {
           </h2>
         </div>
       </div>
+      <div>
+        {/* {new Date(createdAt).toLocaleString()} */}
+      </div>
       <Button
         variant="contained"
         color="secundary"
         className={classes.button}
         // endIcon={<Icon>send</Icon>}
         // className="btn-enviar-cozinha"
-        // type="submit"
+        type="submit"
         onClick={handleEnviar}
       >
         Preparar

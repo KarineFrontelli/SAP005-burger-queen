@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Header from "../../Components/Header";
 
 function Cozinha() {
   const token = localStorage.getItem("token");
@@ -55,6 +56,10 @@ function Cozinha() {
   };
 
   return (
+    <>
+    <div>
+      <Header />
+    </div>
     <section className="container-cozinha">
       {cozinha &&
         cozinha.map((item, index) => (
@@ -84,6 +89,7 @@ function Cozinha() {
           </div>
         ))}
     </section>
+    </>
   );
 }
 
