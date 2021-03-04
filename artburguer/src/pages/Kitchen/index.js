@@ -10,6 +10,10 @@ function Cozinha() {
     fetch("https://lab-api-bq.herokuapp.com/orders", {
       method: "GET",
       headers: {
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
         accept: "application/json",
         Authorization: `${token}`,
       },
@@ -69,7 +73,9 @@ function Cozinha() {
             <div>
               produtos
               {item.Products.map((Products) => (
-                <h1>{Products.name}</h1>
+                <h1>
+                  {Products.name} {Products.flavor} {Products.complement}
+                </h1>
               ))}
               <button type="submit" onClick={handleReady}>
                 Pronto

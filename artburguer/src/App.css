@@ -1,8 +1,9 @@
-body {
+body,
+html {
 	margin: 0;
-    padding:0;
-    box-sizing: border-box;
-	background: #2E3234;
+	padding: 0;
+	box-sizing: border-box;
+	background: #2e3234;
 }
 
 .App-logo {
@@ -10,10 +11,30 @@ body {
 	margin-left: 32%;
 	margin-right: 32%;
 	padding-bottom: 5%;
-	
+	padding-top: 5%;
 }
 
-.logo-header{
+.btn-cardapio {
+	/* position: absolute; */
+	/* top: 50%;
+  left: 50%; */
+	/* transform: translate(-50%,-50%); */
+	/* position: absolute; */
+
+	display: block;
+	color: black;
+	font-size: 14px;
+	font-family: "montserrat";
+	text-decoration: none;
+	margin: 30px 0;
+	border: 2px solid orange;
+	padding: 14px 60px;
+	text-transform: uppercase;
+	overflow: hidden;
+	transition: 1s all ease;
+}
+
+.logo-header {
 	width: 10%;
 }
 
@@ -28,18 +49,18 @@ body {
 	padding: 0.5rem, 0;
 	position: relative;
 	width: 100%;
-	background: #F2CA52;
+	background: #f2ca52;
 }
 
-.input-client-table{
+.input-client-table {
 	display: flex;
 	flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    /* align-items: center; */
+	flex-wrap: nowrap;
+	justify-content: center;
+	/* align-items: center; */
 	margin-top: 10px;
 	margin-bottom: 10px;
-	background: #97A6A6;
+	background: #97a6a6;
 }
 
 .nav {
@@ -86,13 +107,13 @@ body {
 }
 .App-footer {
 	color: white;
-	position: relative;
+	position: fixed;
 	bottom: 1rem;
 	margin-left: 14%;
 }
 
 .container-breakfast {
-	color: blue;
+	color: white;
 	width: 100%;
 }
 /* .container-cardapio{
@@ -115,31 +136,55 @@ p {
 	font-weight: bold;
 }
 
-.container-itens{
-	background-color: #F2CA52;
-	flex: 1;
-}
+.container-itens {
+	
+	box-sizing: border-box;
 
-.container-itens-allday{
+	background-color: transparent;
+	border: 2px solid orange;
+	border-radius: 0.6em;
+
+	cursor: pointer;
+	
+	font-size: 1.5rem;
+	
+	line-height: 1;
+	margin: 20px;
+	padding: 1.2em 2.8em;
+	
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+
+
+
+} 
+
+/* .container-itens-allday{
 	background-color: #F2CA52;
 	
 
-}
+} */
 
-.App-cardapio-btns{
-	display: flex;
+.App-cardapio-btns {
+ display: flex; 
 	flex-direction: row;
-	/* flex-wrap: nowrap; */
-	align-content: center;
+	flex-wrap: nowrap;
+	 /* align-content: center;  */
 	justify-content: center;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
 }
 
 .btn-cardapio {
+	margin-top: 100px;
 	flex: 1;
-	
 }
 
-.btn-orange, .btn-white {
+.btn-orange,
+.btn-white {
 	height: 4rem;
 	font-size: large;
 }
@@ -158,18 +203,46 @@ p {
 	/* color: black;
 	border-radius: 30px; */
 }
+.btn-enviar-cozinha {
+	color: black;
+}
 
 .container-pedidos {
-	/* border: 1px solid pink; */
-	background-color: #97A6A6;
+	background:#ffa500;
+	border: 2px solid orange;
+	border-radius: 0.6em;
+
+	
+	flex-direction: column;
+
+	font-size: 1.5rem;
+
+	line-height: 1;
+	margin: 20px;
+	padding: 1.2em 2.8em;
+
+	text-align: center;
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+
 	flex: 1;
 }
 
 .App-valor-total {
-	color:#D9923B;
+	position:relative;
+	color: white;
 	font-size: 20px;
+	text-align: center;
 }
 
+.pedido {
+display: flex;
+margin-bottom: 10px;
+}
+
+.price {
+	margin-left: auto;
+}
 
 /* .btn-deletar {
 	background-color: white;
@@ -179,7 +252,7 @@ p {
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
