@@ -75,11 +75,10 @@ function MenuLunch() {
     })
       .then((response) => response.json())
       .then((json) => {
-        const dataHora = new Date(json.createdAt).toLocaleString()
+        const dataHora = new Date(json.createdAt).toLocaleString();
         console.log(dataHora);
       });
     return total;
-
   };
 
   function handleItem(item) {
@@ -112,7 +111,7 @@ function MenuLunch() {
               const name = item.name;
               const price = item.price;
               const id = item.id;
-              const qtd = 1;
+              const qtd = item.qtd;
               const initialPrice = item.price;
               const complement = item.complement;
               const flavor = item.flavor;
@@ -199,9 +198,7 @@ function MenuLunch() {
           </h2>
         </div>
       </div>
-      <div>
-        {/* {new Date(createdAt).toLocaleString()} */}
-      </div>
+      <div>{/* {new Date(createdAt).toLocaleString()} */}</div>
       <Button
         variant="contained"
         color="secundary"
