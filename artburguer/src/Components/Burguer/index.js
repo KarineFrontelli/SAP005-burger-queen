@@ -75,8 +75,8 @@ function MenuLunch() {
     })
       .then((response) => response.json())
       .then((json) => {
-        const dataHora = new Date(json.createdAt).toLocaleString();
-        console.log(dataHora);
+        
+        console.log(json);
       });
     return total;
   };
@@ -198,7 +198,6 @@ function MenuLunch() {
           </h2>
         </div>
       </div>
-      <div>{/* {new Date(createdAt).toLocaleString()} */}</div>
       <Button
         variant="contained"
         color="secundary"
