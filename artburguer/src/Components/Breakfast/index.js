@@ -65,7 +65,7 @@ const Breakfast = () => {
         table: numeroMesa,
         products: produto.map((item) => ({
           id: Number(item.id),
-          qtd: 1,
+          qtd: item.qtd,
         })),
       }),
     })
