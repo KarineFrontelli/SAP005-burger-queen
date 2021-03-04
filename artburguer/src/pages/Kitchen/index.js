@@ -54,7 +54,7 @@ function Cozinha() {
         console.log(json);
       });
   };
-
+  
   return (
     <>
     <div>
@@ -64,23 +64,23 @@ function Cozinha() {
       {cozinha &&
         cozinha.map((item, index) => (
           <div id={item.id} className="container-itens" key={index}>
-            <h2 key={index}>{item.client_name}</h2>
-            <h2 key={index}>{item.table}</h2>
-            <h2 key={index}>{item.id}</h2>
-
-            <h2>
-              {item.status}
-              {Intl.NumberFormat("pt-BR", {
+            <p>{new Date(item.createdAt).toLocaleString()}</p>
+            <p key={index}>Cliente: {item.client_name}</p>
+            <p key={index}>Mesa: {item.table}</p>
+            <p key={index}>Nº do pedido: {item.id}</p>
+            <p key={index}>Status do pedido: {item.status}</p>
+            <p>
+              Total: {Intl.NumberFormat("pt-BR", {
                 style: "currency",
                 currency: "BRL",
               }).format(item.price)}
-            </h2>
+            </p>
             <div>
-              produtos
+              <p>Produtos:</p>
               {item.Products.map((Products) => (
-                <h1>
+                <p>
                   {Products.name} {Products.flavor} {Products.complement}
-                </h1>
+                </p>
               ))}
               <button type="submit" onClick={handleReady}>
                 Pronto
