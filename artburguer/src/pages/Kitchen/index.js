@@ -59,7 +59,6 @@ function Cozinha() {
   return (
     <>
       <div>
-
         <Header />
       </div>
       <div>
@@ -86,40 +85,9 @@ function Cozinha() {
                   Pronto
                 </button>
               </div>
-
-      <Header />
-    </div>
-    <div>
-    <h2>Pedidos Pendentes</h2>
-    </div>
-    <section className="container-cozinha">
-      {cozinha &&
-        cozinha.map((item, index) => (
-          <div id={item.id} className="container-itens" key={index}>
-            <p>{new Date(item.createdAt).toLocaleString()}</p>
-            <p key={index}>Cliente: {item.client_name}</p>
-            <p key={index}>Mesa: {item.table}</p>
-            <p key={index}>Nº do pedido: {item.id}</p>
-            <p key={index}>Status do pedido: {item.status}</p>
-            <p>
-              Total: {Intl.NumberFormat("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-              }).format(item.price)}
-            </p>
-            <div>
-              <p>Produtos:</p>
-              {item.Products.map((Products) => (
-                <p>
-                  {Products.name} {Products.flavor} {Products.complement}
-                </p>
-              ))}
-              <button type="submit" onClick={handleReady}>
-                Pronto
-              </button>
-
             </div>
           ))}
+        ;
       </section>
     </>
   );

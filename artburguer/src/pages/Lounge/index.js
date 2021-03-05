@@ -37,7 +37,6 @@ const Salao = () => {
         <Header />
       </div>
       <div>
-
         <div className="btn-back">
           <p onClick={BackPage}> Voltar</p>
         </div>
@@ -60,9 +59,6 @@ const Salao = () => {
           />
         </div>
 
-    
-
-
         <div className="App-cardapio-btns">
           <button
             className="btn-cardapio"
@@ -78,8 +74,6 @@ const Salao = () => {
         </div>
       </div>
 
-      </div>
-      
       <div className="container-cardapio">
         {breakfastMenu ? <Breakfast /> : null}
         {lunchMenu ? <MenuLunch /> : null}
