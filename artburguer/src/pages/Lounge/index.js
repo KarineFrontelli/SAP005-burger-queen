@@ -28,7 +28,7 @@ const Salao = () => {
 
   const back = useHistory();
   function BackPage() {
-    back.push("/welcome");
+    back.push("/salao");
   }
 
   return (
@@ -36,6 +36,7 @@ const Salao = () => {
       <div>
         <Header />
       </div>
+      <div>
       <div className="input-client-table">
         <IconButton className="btn-back">
           <ArrowBackIcon onClick={BackPage} />
@@ -68,6 +69,8 @@ const Salao = () => {
         </button>
       </div>
 
+      </div>
+      
       <div className="container-cardapio">
         {breakfastMenu ? <Breakfast /> : null}
         {lunchMenu ? <MenuLunch /> : null}

@@ -60,9 +60,8 @@ html {
 	flex-wrap: nowrap;
 	justify-content: center;
 	align-items: center;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	background: white;
+	margin-bottom: 27px;
+	background:#f2ca52;
 }
 
 .nav {
