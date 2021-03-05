@@ -131,11 +131,6 @@ function MenuLunch() {
               {""}
             </p>
 
-            {/* <p> R${item.price}</p> */}
-
-            {/* <p>{item.flavor} </p>
-            <p>{item.complement}</p> */}
-
             <p className="price">
               {Intl.NumberFormat("pt-BR", {
                 style: "currency",
@@ -200,8 +195,6 @@ function MenuLunch() {
         variant="contained"
         color="secundary"
         className={classes.button}
-        // endIcon={<Icon>send</Icon>}
-        // className="btn-enviar-cozinha"
         type="submit"
         onClick={handleEnviar}
       >
