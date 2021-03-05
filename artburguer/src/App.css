@@ -69,8 +69,11 @@ html {
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 27px;
+
 	background:white;
 	border: 2px solid orange;
+
+	
 }
 
 .nav {

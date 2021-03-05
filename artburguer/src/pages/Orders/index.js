@@ -1,8 +1,8 @@
+
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Header from "../../Components/Header";
-import IconButton from "@material-ui/core/IconButton";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+
 
 function Orders() {
   const token = localStorage.getItem("token");
@@ -60,11 +60,14 @@ function Orders() {
       });
   };
 
+ 
+
   return (
     <>
       <div>
         <Header />
       </div>
+
 
       <div className="btn-back">
         <p onClick={BackPage}>VOLTAR</p>
@@ -72,11 +75,14 @@ function Orders() {
 
       <h2 className="App-text-pedidosProntos">PEDIDOS PRONTOS</h2>
 
+
+      
       <section className="container-cozinha">
         {cozinha &&
           cozinha.map((item, index) => (
             <div id={item.id} className="container-itens" key={index}>
               <p>{new Date(item.createdAt).toLocaleString()}</p>
+
               <p key={index}>Cliente: {item.client_name}</p>
               <p key={index}>Mesa: {item.table}</p>
               <p key={index}>Nº do pedido: {item.id}</p>
@@ -89,6 +95,8 @@ function Orders() {
                     {Products.name} {Products.flavor} {Products.complement}
                     {Products.qtd}
                   </p>
+
+          
                 ))}
                 <button
                   className="btn-entregue"
