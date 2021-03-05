@@ -3,7 +3,7 @@ import logo from "../../img/hamburgernovo.png";
 import { useHistory } from "react-router-dom";
 import "../../App.css";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import IconButton from '@material-ui/core/IconButton';
+import IconButton from "@material-ui/core/IconButton";
 
 const Header = () => {
   const back = useHistory();
@@ -22,7 +22,7 @@ const Header = () => {
       <div className="App-logo-header">
         <img src={logo} className="logo-header" alt="logo" />
         <IconButton className="App-btn-back" onClick={logout}>
-          <ExitToAppIcon fontSize="large"  />
+          <ExitToAppIcon fontSize="large" />
         </IconButton>
       </div>
     </header>

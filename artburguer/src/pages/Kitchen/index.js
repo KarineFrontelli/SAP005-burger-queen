@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Header from "../../Components/Header";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function Cozinha() {
   const token = localStorage.getItem("token");
@@ -55,39 +55,37 @@ function Cozinha() {
       .then((response) => response.json())
       .then((json) => {});
   };
-  
+
   return (
     <>
       <div>
-      <Header />
-    </div>
-    <section className="container-cozinha">
-      {cozinha &&
-        cozinha.map((item, index) => (
-          <div id={item.id} className="container-itens" key={index}>
-            <p>{new Date(item.createdAt).toLocaleString()}</p>
-            <p key={index}>Cliente: {item.client_name}</p>
-            <p key={index}>Mesa: {item.table}</p>
-            <p key={index}>Nº do pedido: {item.id}</p>
-            <p key={index}>Status do pedido: {item.status}</p>
-            <p>
-              Total: {Intl.NumberFormat("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-              }).format(item.price)}
-            </p>
-            <div>
-              <p>Produtos:</p>
-              {item.Products.map((Products) => (
-                <p>
-                  {Products.name} {Products.flavor} {Products.complement}
-                </p>
-              ))}
-              <button type="submit" onClick={handleReady}>
-                Pronto
-              </button>
+        <Header />
+      </div>
+      <div>
+        <h2 className="App-text-pedidosPendentes">Pedidos Pendentes</h2>
+      </div>
+      <section className="container-cozinha">
+        {cozinha &&
+          cozinha.map((item, index) => (
+            <div id={item.id} className="container-itens" key={index}>
+              <p>{new Date(item.createdAt).toLocaleString()}</p>
+              <p key={index}>Cliente: {item.client_name}</p>
+              <p key={index}>Mesa: {item.table}</p>
+              <p key={index}>Nº do pedido: {item.id}</p>
+
+              <div>
+                <p>Produtos:</p>
+                {item.Products.map((Products) => (
+                  <p>
+                    {Products.name} {Products.flavor} {Products.complement}
+                    {Products.qtd}
+                  </p>
+                ))}
+                <button type="submit" onClick={handleReady}>
+                  Pronto
+                </button>
+              </div>
             </div>
-          </div>
           ))}
       </section>
     </>

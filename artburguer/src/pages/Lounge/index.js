@@ -28,7 +28,7 @@ const Salao = () => {
 
   const back = useHistory();
   function BackPage() {
-    back.push("/welcome");
+    back.push("/salao");
   }
 
   return (
@@ -36,36 +36,42 @@ const Salao = () => {
       <div>
         <Header />
       </div>
-      <div className="input-client-table">
-        <IconButton className="btn-back">
-          <ArrowBackIcon onClick={BackPage} />
-        </IconButton>
-        <TextField
-          label="Cliente"
-          variant="filled"
-          color="secundary"
-          placeholder="Nome do Cliente"
-          value={cliente}
-          onChange={(event) => setCliente(event.target.value)}
-        />
-        <TextField
-          label="Mesa"
-          variant="filled"
-          color="secundary"
-          value={mesa}
-          placeholder="N° mesa"
-          onChange={(event) => setMesa(event.target.value)}
-        />
-      </div>
+      <div>
+        <div className="btn-back">
+          <p onClick={BackPage}> Voltar</p>
+        </div>
+        <div className="input-client-table">
+          <TextField
+            label="Cliente"
+            variant="filled"
+            color="secundary"
+            placeholder="Nome do Cliente"
+            value={cliente}
+            onChange={(event) => setCliente(event.target.value)}
+          />
+          <TextField
+            label="Mesa"
+            variant="filled"
+            color="secundary"
+            value={mesa}
+            placeholder="N° mesa"
+            onChange={(event) => setMesa(event.target.value)}
+          />
+        </div>
 
-      <div className="App-cardapio-btns">
-        <button className="btn-cardapio" type="submit" onClick={breakfastClick}>
-          Café da manhã
-        </button>
+        <div className="App-cardapio-btns">
+          <button
+            className="btn-cardapio"
+            type="submit"
+            onClick={breakfastClick}
+          >
+            Café da manhã
+          </button>
 
-        <button className="btn-cardapio" type="submit" onClick={lunchClick}>
-          Dia Inteiro
-        </button>
+          <button className="btn-cardapio" type="submit" onClick={lunchClick}>
+            Dia Inteiro
+          </button>
+        </div>
       </div>
 
       <div className="container-cardapio">

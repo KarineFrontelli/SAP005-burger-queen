@@ -1,12 +1,19 @@
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import Header from "../../Components/Header";
+import IconButton from "@material-ui/core/IconButton";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 function Orders() {
   const token = localStorage.getItem("token");
   const [cozinha, setCozinha] = useState("");
   const nomeCliente = sessionStorage.getItem("cliente");
   const numeroMesa = sessionStorage.getItem("mesa");
-  // const [pedidosprontos, setpedidosprontos] = useState([]);
+  const back = useHistory();
+
+  function BackPage() {
+    back.push("/salao");
+  }
 
   useEffect(() => {
     fetch("https://lab-api-bq.herokuapp.com/orders", {
@@ -58,30 +65,37 @@ function Orders() {
       <div>
         <Header />
       </div>
+
+      <div className="btn-back">
+        <p onClick={BackPage}>VOLTAR</p>
+      </div>
+
+      <h2 className="App-text-pedidosProntos">PEDIDOS PRONTOS</h2>
+
       <section className="container-cozinha">
         {cozinha &&
           cozinha.map((item, index) => (
             <div id={item.id} className="container-itens" key={index}>
-              <h2 key={index}>{item.client_name}</h2>
-              <h2 key={index}>{item.table}</h2>
-              <h2 key={index}>{item.id}</h2>
+              <p>{new Date(item.createdAt).toLocaleString()}</p>
+              <p key={index}>Cliente: {item.client_name}</p>
+              <p key={index}>Mesa: {item.table}</p>
+              <p key={index}>Nº do pedido: {item.id}</p>
+              <p key={index}>Status do pedido: {item.status}</p>
 
-              <h2>
-                {item.status}
-                {Intl.NumberFormat("pt-BR", {
-                  style: "currency",
-                  currency: "BRL",
-                }).format(item.price)}
-              </h2>
               <div>
-                produtos
+                <p>Produtos:</p>
                 {item.Products.map((Products) => (
-                  <h1>
+                  <p>
                     {Products.name} {Products.flavor} {Products.complement}
-                  </h1>
+                    {Products.qtd}
+                  </p>
                 ))}
-                <button type="submit" onClick={handleFinish}>
-                  Cliente Satisfeito
+                <button
+                  className="btn-entregue"
+                  type="submit"
+                  onClick={handleFinish}
+                >
+                  ENTREGUE
                 </button>
               </div>
             </div>
