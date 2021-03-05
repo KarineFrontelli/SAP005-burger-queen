@@ -74,7 +74,6 @@ function MenuLunch() {
     })
       .then((response) => response.json())
       .then((json) => {
-        
         console.log(json);
       });
     return total;
@@ -110,7 +109,7 @@ function MenuLunch() {
               const name = item.name;
               const price = item.price;
               const id = item.id;
-              const qtd = item.qtd;
+              const qtd = 1;
               const initialPrice = item.price;
               const complement = item.complement;
               const flavor = item.flavor;
