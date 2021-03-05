@@ -32,19 +32,19 @@ Neste projeto começamos a aprender React.Js.
 
 A aplicação foi desenvolvida com o React.Js. Utilizando o React-Router criou-se uma SPA (single page aplication) de maneira que a navegação na aplicação ficasse mais rápida para o usuário.
 >A primeira tela apresentada é a tela de login, que dá a possobilidade de o novo usuário ser redirecionado para a tela de cadastro
-![telalogin](src/img/telaLogin.png)
+![telalogin](artburguer/src/img/telaLogin.png)
 
 >Na tela de cadastro o usuário deve informar se trabalha na cozinha ou no salão, que seriam os garçons
-![telaCadastro](src/img/telaCadastro.png)
+![telaCadastro](artburguer/src/img/telaCadastro.png)
 
 > Os garçons são redirecionados para uma tela de transição quando fazer o login. Nessa tela têm a possibilidade de escolher se vão gerar um novo pedido ou se vão visualizar os pedidos prontos para ser entregues
-![telatransicao](src/img/transicao.png)
+![telatransicao](artburguer/src/img/transicao.png)
 
 >Na tela pedidos os garçons podem fazer pedidos escolhendo entre dois cardápios
-![telapedido](src/img/pedido.png)
+![telapedido](artburguer/src/img/pedido.png)
 
 >A equipe da cozinha quando faz o login na aplicação é redirecionada para a página de pedidos pendentes onde consegue visualizar os pedidos que precisam ser preparados
-![telapendentes](src/img/pendentes.png)
+![telapendentes](artburguer/src/img/pendentes.png)
 
 
 ## 3. A marca ArtBurguer
