@@ -25,7 +25,6 @@ function MenuLunch() {
   const handleRemoveItem = (indice) => {
     const ItensFiltrados = produto.filter((_, index) => indice != index);
     setProduto(ItensFiltrados);
-    console.log(indice);
   };
 
   const handleAdicionaItem = (index) => {

@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useHistory } from "react";
 import Header from "../../Components/Header";
+import IconButton from "@material-ui/core/IconButton";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 function Orders() {
   const token = localStorage.getItem("token");
@@ -53,32 +55,43 @@ function Orders() {
       });
   };
 
+  // const back = useHistory();
+  function BackPage() {
+    useHistory().push("/salao");
+  };
+
   return (
     <>
       <div>
         <Header />
       </div>
+      <div>
+        <IconButton className="btn-back">
+          <ArrowBackIcon onClick={BackPage} />
+        </IconButton>
+        <h2>Pedidos Prontos</h2>
+      </div>
       <section className="container-cozinha">
         {cozinha &&
           cozinha.map((item, index) => (
             <div id={item.id} className="container-itens" key={index}>
-              <h2 key={index}>{item.client_name}</h2>
-              <h2 key={index}>{item.table}</h2>
-              <h2 key={index}>{item.id}</h2>
-
-              <h2>
-                {item.status}
-                {Intl.NumberFormat("pt-BR", {
-                  style: "currency",
-                  currency: "BRL",
-                }).format(item.price)}
-              </h2>
+              <p>{new Date(item.createdAt).toLocaleString()}</p>
+            <p key={index}>Cliente: {item.client_name}</p>
+            <p key={index}>Mesa: {item.table}</p>
+            <p key={index}>Nº do pedido: {item.id}</p>
+            <p key={index}>Status do pedido: {item.status}</p>
+            <p>
+              Total: {Intl.NumberFormat("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              }).format(item.price)}
+            </p>
               <div>
-                produtos
-                {item.Products.map((Products) => (
-                  <h1>
-                    {Products.name} {Products.flavor} {Products.complement}
-                  </h1>
+              <p>Produtos:</p>
+              {item.Products.map((Products) => (
+                <p>
+                  {Products.name} {Products.flavor} {Products.complement}
+                </p>
                 ))}
                 <button type="submit" onClick={handleFinish}>
                   Cliente Satisfeito

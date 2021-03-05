@@ -61,6 +61,9 @@ function Cozinha() {
       <div>
       <Header />
     </div>
+    <div>
+    <h2>Pedidos Pendentes</h2>
+    </div>
     <section className="container-cozinha">
       {cozinha &&
         cozinha.map((item, index) => (
