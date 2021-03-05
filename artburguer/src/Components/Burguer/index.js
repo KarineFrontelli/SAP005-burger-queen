@@ -149,11 +149,11 @@ function MenuLunch() {
         {produto.length > 0 &&
           produto.map((item, index) => (
             <div className="pedido" key={index}>
-              <h2>
+              <p>
                 {item.name} {item.flavor} {item.complement}
-              </h2>
+              </p>
               <div>
-                <h2>Qtd: {item.qtd}</h2>
+                <p>Qtd: {item.qtd}</p>
                 <IconButton
                   className="btn-adicionar"
                   type="submit"
@@ -169,12 +169,12 @@ function MenuLunch() {
                   <IndeterminateCheckBoxIcon />
                 </IconButton>
               </div>
-              <h2>
+              <p>
                 {Intl.NumberFormat("pt-BR", {
                   style: "currency",
                   currency: "BRL",
                 }).format(item.price)}
-              </h2>
+              </p>
 
               <IconButton
                 aria-label="delete"
@@ -187,13 +187,13 @@ function MenuLunch() {
             </div>
           ))}
         <div className="App-valor-total">
-          <h2>
+          <p>
             Valor Total:{" "}
             {Intl.NumberFormat("pt-BR", {
               style: "currency",
               currency: "BRL",
             }).format(total)}
-          </h2>
+          </p>
         </div>
       </div>
       <Button

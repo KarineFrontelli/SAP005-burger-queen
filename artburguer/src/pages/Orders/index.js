@@ -1,14 +1,19 @@
-import { useEffect, useState, useHistory } from "react";
+
+import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import Header from "../../Components/Header";
-import IconButton from "@material-ui/core/IconButton";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+
 
 function Orders() {
   const token = localStorage.getItem("token");
   const [cozinha, setCozinha] = useState("");
   const nomeCliente = sessionStorage.getItem("cliente");
   const numeroMesa = sessionStorage.getItem("mesa");
-  // const [pedidosprontos, setpedidosprontos] = useState([]);
+  const back = useHistory();
+
+  function BackPage() {
+    back.push("/salao");
+  }
 
   useEffect(() => {
     fetch("https://lab-api-bq.herokuapp.com/orders", {
@@ -55,46 +60,50 @@ function Orders() {
       });
   };
 
-  // const back = useHistory();
-  function BackPage() {
-    useHistory().push("/salao");
-  };
+ 
 
   return (
     <>
       <div>
         <Header />
       </div>
-      <div>
-        <IconButton className="btn-back">
-          <ArrowBackIcon onClick={BackPage} />
-        </IconButton>
-        <h2>Pedidos Prontos</h2>
+
+
+      <div className="btn-back">
+        <p onClick={BackPage}>VOLTAR</p>
       </div>
+
+      <h2 className="App-text-pedidosProntos">PEDIDOS PRONTOS</h2>
+
+
+      
       <section className="container-cozinha">
         {cozinha &&
           cozinha.map((item, index) => (
             <div id={item.id} className="container-itens" key={index}>
               <p>{new Date(item.createdAt).toLocaleString()}</p>
-            <p key={index}>Cliente: {item.client_name}</p>
-            <p key={index}>Mesa: {item.table}</p>
-            <p key={index}>Nº do pedido: {item.id}</p>
-            <p key={index}>Status do pedido: {item.status}</p>
-            <p>
-              Total: {Intl.NumberFormat("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-              }).format(item.price)}
-            </p>
+
+              <p key={index}>Cliente: {item.client_name}</p>
+              <p key={index}>Mesa: {item.table}</p>
+              <p key={index}>Nº do pedido: {item.id}</p>
+              <p key={index}>Status do pedido: {item.status}</p>
+
               <div>
-              <p>Produtos:</p>
-              {item.Products.map((Products) => (
-                <p>
-                  {Products.name} {Products.flavor} {Products.complement}
-                </p>
+                <p>Produtos:</p>
+                {item.Products.map((Products) => (
+                  <p>
+                    {Products.name} {Products.flavor} {Products.complement}
+                    {Products.qtd}
+                  </p>
+
+          
                 ))}
-                <button type="submit" onClick={handleFinish}>
-                  Cliente Satisfeito
+                <button
+                  className="btn-entregue"
+                  type="submit"
+                  onClick={handleFinish}
+                >
+                  ENTREGUE
                 </button>
               </div>
             </div>
