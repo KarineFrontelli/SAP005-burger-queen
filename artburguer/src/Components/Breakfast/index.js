@@ -182,20 +182,11 @@ const Breakfast = () => {
           </h2>
         </div>
       </div>
-      {/* <button
-        className="btn-enviar-cozinha"
-        type="submit"
-        onClick={handleEnviar}
-      >
-        Enviar para cozinha
-      </button> */}
+
       <Button
         variant="contained"
         color="secundary"
         className={classes.button}
-        // endIcon={<Icon>send</Icon>}
-        // className="btn-enviar-cozinha"
-        // type="submit"
         onClick={handleEnviar}
       >
         Preparar
