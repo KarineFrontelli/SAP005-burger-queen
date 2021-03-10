@@ -1,9 +1,9 @@
 <div align="center"><img src="/artburguer/src/img/hamburgernovo.png" width="400"></div>
 
-## Art Burguer :hamburger:
+## Art Burger :hamburger:
 
-ArtBurguer é uma lanchonete 24 horas muito movimentada que precisava de uma aplicação para facilitar o trabalho da sua equipe, criando comunicação direta entre a equipe do salão e a da cozinha no que diz respeito aos pedidos de clientes. 
-[**Conheça a aplicação da Art Burguer**](https://art-burger.vercel.app/) :hamburger:
+Art Burger é uma hamburgueria 24 horas que está crescendo e precisava de uma aplicação para facilitar o trabalho da sua equipe, criando comunicação direta entre a equipe do salão e a da cozinha no que diz respeito aos pedidos de clientes. 
+[**Conheça a aplicação da Art Burger**](https://art-burger.vercel.app/) :hamburger:
 > Status do Projeto: Concluído :heavy_check_mark:
 
 ---
@@ -12,7 +12,7 @@ ArtBurguer é uma lanchonete 24 horas muito movimentada que precisava de uma apl
 
 - [1. Apresentação do Projeto](#1-apresentação-do-projeto)
 - [2. Apresentação da aplicação](#2-apresentação-da-aplicação)
-- [3. A marca ArtBurguer](#3-a-marca-artburguer)
+- [3. A marca Art Burger](#3-a-marca-art-burger)
 - [4. Desenvolvimento](#4-desenvolvimento)
 - [5. Planejamento](#5-planejamento)
 - [6. Linguagens e Ferramentas Utilizadas](#6-linguagens-e-ferramentas-utiizadas)
@@ -25,48 +25,50 @@ ArtBurguer é uma lanchonete 24 horas muito movimentada que precisava de uma apl
 
 ## 1. Apresentação do projeto
 
-O projeto ArtBurguer foi desenvolvido como parte do Bootcamp da Laboratória. Nos foi apresentada a proposta de projeto no qual deveríamos desenvolver uma aplicação para um restaurante pequeno que precisava automatizar seu sistema de pedidos para facilitar a dinâmica e o trabalho dos garçons, que pegam os pedidos dos clientes, e da equipe da cozinha, que precisa preparar os pedidos de forma organizada para serem entregues aos clientes no tempo adequado. 
+O projeto Art Burger foi desenvolvido como parte do Bootcamp da Laboratória.
+Nos foi apresentada a proposta de projeto no qual deveríamos desenvolver uma aplicação para um restaurante pequeno que precisava automatizar seu sistema de pedidos para facilitar a dinâmica e o trabalho dos garçons, que pegam os pedidos dos clientes, e da equipe da cozinha, que precisa preparar os pedidos de forma organizada para serem entregues aos clientes no tempo adequado. 
 Neste projeto começamos a aprender React.Js.
 
 ## 2. Apresentação da Aplicação:pencil2:
 
-A aplicação foi desenvolvida com o React.Js. Utilizando o React-Router criou-se uma SPA (single page aplication) de maneira que a navegação na aplicação ficasse mais rápida para o usuário.
->A primeira tela apresentada é a tela de login, que dá a possobilidade de o novo usuário ser redirecionado para a tela de cadastro
-![telalogin](artburguer/src/img/telaLogin.png)
+A aplicação foi desenvolvida usanso o React.Js para fazer a manipulação de DOM  e renderização da aplicação. 
+Utilizando o React-Router criou-se uma SPA (single page aplication) de maneira que a navegação na aplicação ficasse mais rápida para o usuário.
+>A primeira tela apresentada é a tela de login, que dá a possibilidade de o usuário cadastrado entrar na aplicação com email e senha. Já para o novo usuário, a tela dá a opção de ser redirecionado para a tela de cadastro.
+<div align="center"><img src="artburguer/src/img/login.png" width="300"></div>
 
->Na tela de cadastro o usuário deve informar se trabalha na cozinha ou no salão, que seriam os garçons
-![telaCadastro](artburguer/src/img/telaCadastro.png)
+>Na tela de cadastro o usuário deve informar se trabalha na cozinha ou no salão para ser redirecionado para a página correta quando entrar na aplicação.
+<div align="center"><img src="artburguer/src/img/cadastro.png" width="300"></div>
 
-> Os garçons são redirecionados para uma tela de transição quando fazer o login. Nessa tela têm a possibilidade de escolher se vão gerar um novo pedido ou se vão visualizar os pedidos prontos para ser entregues
-![telatransicao](artburguer/src/img/transicao.png)
+> Os garçons são redirecionados para uma tela de transição quando fazem o login. Nessa tela têm a possibilidade de escolher se vão gerar um novo pedido ou se vão visualizar os pedidos prontos para ser entregues.
 
->Na tela pedidos os garçons podem fazer pedidos escolhendo entre dois cardápios
-![telapedido](artburguer/src/img/pedido.png)
+<div align="center"><img src="artburguer/src/img/salao.png" width="300"></div>
 
->A equipe da cozinha quando faz o login na aplicação é redirecionada para a página de pedidos pendentes onde consegue visualizar os pedidos que precisam ser preparados
-![telapendentes](artburguer/src/img/pendentes.png)
+>Na tela NOVO PEDIDO os garçons podem fazer pedidos escolhendo entre dois cardápios.
+
+<div align="center"><img src="artburguer/src/img/pedido-novo.png" width="300"></div>
+
+>A equipe da cozinha, quando faz o login na aplicação, é redirecionada para a página de pedidos pendentes onde consegue visualizar os pedidos que precisam ser preparados e marcar como prontos conforme terminam de preparar.
+
+<div align="center"><img src="artburguer/src/img/pedidos-pendentes.png" width="300"></div>
 
 
-## 3. A marca ArtBurguer
 
-A marca ArtBuguer pensada para ser uma marca moderna, que dialoga com o público jovem, principal público da hamburgueria. Utilizou-se para isso a identidade visual partindo da arte urbana, representada pelo grafite.
-O grafite está presente na logo da marca e também é usado dentro da aplicação para criar uma identidade visual.
+## 3. A marca Art Burger
+
+A marca Art Burger foi pensada para ser uma marca moderna, que dialoga com o público jovem, principal público da hamburgueria. Criou-se para isso uma identidade visual inspirada na arte urbana, representada pelo grafite.
+O grafite está presente na logo da marca e também é usado dentro da aplicação.
 
 
 <div align="center"><img src="/artburguer/src/img/hamburgernovo.png" width="200"></div>
-
-
-
----
   
 ### Paleta de Cores :art:
 
-Partindo da _logo_ da hamburgueria e pensando em criar uma identidade visual, a seguinte paleta de cores foi usada para a execução do projeto: 
+Partindo da _logo_ da hamburgueria e pensando na sua identidade visual, a seguinte paleta de cores foi usada para a execução do projeto: 
 ![Paletadecores](/artburguer/src/img/paleta-artburguer.png)
 
 ## 4. Desenvolvimento :clipboard:
 
-Como ponto de partida para desenvolvimento do projeto foram apresentadas para as desenvolvedoras histórias de usuário que contemplavam as necessidades da equipe do restaurante quanto aos pedidos de clientes. 
+Como ponto de partida para desenvolvimento do projeto foram apresentadas para as desenvolvedoras histórias de usuário que contemplavam as necessidades da equipe do restaurante quanto a comunicação cozinha/ salão. 
 
 ### Histórias de usuário :bookmark_tabs:
 
@@ -106,6 +108,7 @@ Para o desenvolvimento do projeto utilizamos as seguintes ferramentas:
 :pushpin: Javascript<br>
 :pushpin: React.Js<br>
 :pushpin: Material UI<br>
+:pushpin: Mdb Bootstrap
 
 
 
