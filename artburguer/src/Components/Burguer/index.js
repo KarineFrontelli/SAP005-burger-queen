@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
-import Icon from "@material-ui/core/Icon";
 import IndeterminateCheckBoxIcon from "@material-ui/icons/IndeterminateCheckBox";
 import AddBoxIcon from "@material-ui/icons/AddBox";
 import { makeStyles } from "@material-ui/core/styles";
@@ -22,7 +21,7 @@ function MenuLunch() {
   const nomeCliente = sessionStorage.getItem("cliente");
   const numeroMesa = sessionStorage.getItem("mesa");
 
-  const handleRemoveItem = (indice) => {
+  const handleDeleteItem = (indice) => {
     const ItensFiltrados = produto.filter((_, index) => indice != index);
     setProduto(ItensFiltrados);
   };
@@ -31,7 +30,7 @@ function MenuLunch() {
     let newArrayProduto = [...produto];
     newArrayProduto[index].qtd++;
     newArrayProduto[index].price =
-      newArrayProduto[index].initialPrice * newArrayProduto[index].qtd;
+    newArrayProduto[index].initialPrice * newArrayProduto[index].qtd;
     setProduto(newArrayProduto);
   };
 
@@ -39,7 +38,7 @@ function MenuLunch() {
     let newArrayProduto = [...produto];
     newArrayProduto[index].qtd--;
     newArrayProduto[index].price =
-      newArrayProduto[index].initialPrice * newArrayProduto[index].qtd;
+    newArrayProduto[index].initialPrice * newArrayProduto[index].qtd;
     setProduto(newArrayProduto);
   };
 
@@ -74,7 +73,7 @@ function MenuLunch() {
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log(json);
+       
       });
     return total;
   };
@@ -140,7 +139,6 @@ function MenuLunch() {
           </div>
         ))}
       <div className="container-pedidos">
-        {console.log(produto)}
         {produto.length > 0 &&
           produto.map((item, index) => (
             <div className="pedido" key={index}>
@@ -175,7 +173,7 @@ function MenuLunch() {
                 aria-label="delete"
                 className="btn-deletar"
                 type="submit"
-                onClick={() => handleRemoveItem(index)}
+                onClick={() => handleDeleteItem(index)}
               >
                 {<DeleteIcon />}
               </IconButton>

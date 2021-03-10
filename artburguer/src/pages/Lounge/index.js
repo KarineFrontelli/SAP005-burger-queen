@@ -5,11 +5,9 @@ import Header from "../../Components/Header";
 import MenuLunch from "../../Components/Burguer";
 import Breakfast from "../../Components/Breakfast";
 import TextField from "@material-ui/core/TextField";
-import IconButton from "@material-ui/core/IconButton";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+
 
 const Salao = () => {
-  const token = localStorage.getItem("token");
   const [breakfastMenu, setBeakfastMenu] = useState(false);
   const [lunchMenu, setLunchMenu] = useState(false);
   const [cliente, setCliente] = useState("");

@@ -18,13 +18,13 @@ const AppLogin = () => {
     let passwordOk = false;
 
     if (email.length === 0) {
-      setMsg("Email está em branco!");
+      setMsg("Campos precisam ser preenchidos");
     } else {
       emailOk = true;
     }
 
     if (password.length === 0) {
-      setMsg("Password deve ser preenchido!");
+      setMsg("Campos precisam ser preenchidos");
     } else {
       passwordOk = true;
     }
@@ -45,7 +45,6 @@ const AppLogin = () => {
       })
         .then((response) => response.json())
         .then((json) => {
-          console.log(json);
           const token = json.token;
           const id = json.id;
           const tokenUser = localStorage.setItem("token", token);
@@ -67,11 +66,7 @@ const AppLogin = () => {
                 size="lg"
                 label="Email *"
                 icon="envelope"
-                group
                 type="email"
-                validate
-                error="wrong"
-                success="right"
                 onChange={(event) => setEmail(event.target.value)}
               />
               <MDBInput
@@ -80,9 +75,7 @@ const AppLogin = () => {
                 size="lg"
                 label="Senha *"
                 icon="lock"
-                group
                 type="password"
-                validate
                 onChange={(event) => setPassword(event.target.value)}
               />
             </div>
@@ -103,8 +96,8 @@ const AppLogin = () => {
             </div>
             <div className="App-cadaster">
               <Link to="/register">Cadastre-se</Link>
-              {msg !== "" && <p>{`${msg}`}</p>}
             </div>
+            {msg !== "" && <p className="App-msgErro">{`${msg}`}</p>}
             <Footer />
           </form>
         </MDBCol>

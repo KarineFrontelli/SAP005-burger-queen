@@ -4,7 +4,6 @@ import IconButton from "@material-ui/core/IconButton";
 import IndeterminateCheckBoxIcon from "@material-ui/icons/IndeterminateCheckBox";
 import AddBoxIcon from "@material-ui/icons/AddBox";
 import Button from "@material-ui/core/Button";
-import Icon from "@material-ui/core/Icon";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -71,14 +70,13 @@ const Breakfast = () => {
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log(json);
+        alert("Pedido está sendo preparado!");
       });
     return total;
   };
 
   function handleItem(item) {
     setProduto((prevProduto) => [...prevProduto, item]);
-    console.log(produto);
   }
 
   useEffect(() => {
@@ -96,7 +94,6 @@ const Breakfast = () => {
       .then((json) => {
         const coffee = json.filter((item) => item.type === "breakfast");
         setCoffe(coffee);
-        console.log(coffee);
       });
   }, []);
 
@@ -134,7 +131,6 @@ const Breakfast = () => {
         ))}
 
       <div className="container-pedidos">
-        {console.log(produto)}
         {produto.length > 0 &&
           produto.map((item, index) => (
             <div className="pedido" key={index}>
@@ -172,7 +168,7 @@ const Breakfast = () => {
               </IconButton>
             </div>
           ))}
-        <div className="App-valor-total">
+        <section className="App-valor-total">
           <h2>
             Valor Total:{" "}
             {Intl.NumberFormat("pt-BR", {
@@ -180,7 +176,7 @@ const Breakfast = () => {
               currency: "BRL",
             }).format(total)}
           </h2>
-        </div>
+        </section>
       </div>
 
       <Button

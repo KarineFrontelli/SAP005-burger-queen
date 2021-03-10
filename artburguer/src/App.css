@@ -1,225 +1,217 @@
 body,
 html {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	background: #2e3234;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #2e3234;
 }
 
 .App-background {
-	background-image:url(./img/fundegrafite.png);
-	height: 95vh;
+  background-image: url(./img/fundegrafite.png);
+  height: 95vh;
 }
 
 .btn-tela-grafite {
-	background-color:#97a6a6;
-	font-size: 30px;
-	border: 2px solid #F2CA52;
-	margin-top:100px;
-	height: 20vh;
-	width: 50vw;
+  background-color: #97a6a6;
+  font-size: 30px;
+  border: 2px solid #f2ca52;
+  margin-top: 100px;
+  height: 20vh;
+  width: 50vw;
 }
 
 .App-logo {
-	width: 30%;
-	margin-left: 32%;
-	margin-right: 32%;
-	padding-bottom: 5%;
-	padding-top: 5%;
+  width: 30%;
+  margin-left: 32%;
+  margin-right: 32%;
+  padding-bottom: 5%;
+  padding-top: 5%;
 }
-.App-welcome, h3, .App-text-pedidosPendentes {
-	color: white;
-	text-align: center;
+.App-welcome,
+h3,
+.App-text-pedidosPendentes {
+  color: white;
+  text-align: center;
 }
 
 .btn-cardapio {
-
-	color: black;
-	font-size: 14px;
-	font-family: "montserrat";
-	text-decoration: none;
-	border: 2px solid orange;
-	padding: 14px 60px;
-	text-transform: uppercase;
-	flex: 1;
+  color: black;
+  font-size: 14px;
+  font-family: "montserrat";
+  text-decoration: none;
+  border: 2px solid orange;
+  padding: 14px 60px;
+  text-transform: uppercase;
+  flex: 1;
 }
 
 .logo-header {
-	width: 10%;
+  width: 10%;
 }
 
 .App-logo-header {
-	width: 100%;
-	display: flex;
-	padding: 15px 15px;
-	justify-content: space-between;
+  width: 100%;
+  display: flex;
+  padding: 15px 15px;
+  justify-content: space-between;
 }
 
 .App-header {
-	padding: 0.5rem, 0;
-	position: relative;
-	width: 100%;
-	background: #f2ca52;
+  padding: 0.5rem, 0;
+  position: relative;
+  width: 100%;
+  background: #f2ca52;
 }
 
 .input-client-table {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-	margin-bottom: 27px;
-
-	background:white;
-	border: 2px solid orange;
-
-	
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 27px;
+  background: white;
+  border: 2px solid orange;
 }
 
 .nav {
-	height: 70px;
-	display: flex;
-	justify-content: space-between;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .App-formInput {
-	color: white;
-	background: none;
-	margin-left: 10%;
-	margin-right: 10%;
+  color: white;
+  background: none;
+  margin-left: 10%;
+  margin-right: 10%;
 }
-/* .App-text-pedidosPendentes{
-	color: white
-	;
-} */
 
 .App-text {
-	color: white;
-	font-size: 1rem;
+  color: white;
+  font-size: 1rem;
 }
 .App-cadaster {
-	font-size: 2rem;
-	color: white;
-	margin-left: 10%;
-	margin-right: 10%;
-	text-align: center;
-	text-decoration: underline;
+  font-size: 2rem;
+  color: white;
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: center;
+  text-decoration: underline;
 }
 
 .App-atuacao {
-	color: white;
-	font-size: 25px;
-	text-align: center;
+  color: white;
+  font-size: 25px;
+  text-align: center;
 }
 
 .App-funcionario {
-	padding-top: 10%;
-	color: white;
-	font-size: 25px;
-	text-align: center;
+  padding-top: 10%;
+  color: white;
+  font-size: 25px;
+  text-align: center;
 }
 .App-footer {
-	color: white;
-	position: fixed;
-	bottom: 1rem;
-	margin-left: 14%;
+  color: white;
+  position: fixed;
+  bottom: 1rem;
+  margin-left: 14%;
 }
 
 .container-breakfast {
-	color: white;
-	width: 100%;
+  color: white;
+  width: 100%;
 }
 
-
 .container-cardapio {
-	text-align: center;
+  text-align: center;
 }
 
 .container-containe,
 p {
-	color: white;
-	font-weight: bold;
+  color: white;
+  font-weight: bold;
 }
 
 .container-itens {
-	box-sizing: border-box;
-	background-color: transparent;
-	border: 2px solid orange;
-	border-radius: 0.6em;
-	cursor: pointer;
-	font-size: 1.5rem;
-	line-height: 1;
-	margin: 20px;
-	padding: 1.2em 2.8em;
-	text-transform: uppercase;
-	font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 2px solid orange;
+  border-radius: 0.6em;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+  margin: 20px;
+  padding: 1.2em 2.8em;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
 }
 
 .App-cardapio-btns {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: center;
-	position: relative;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .btn-orange,
 .btn-white {
-	height: 4rem;
-	font-size: large;
+  height: 4rem;
+  font-size: large;
 }
 
 .container-all-day {
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .App-btn-back {
-	padding-top: 2px;
-	margin-left: 70px;
+  padding-top: 2px;
+  margin-left: 70px;
 }
 .btn-enviar-cozinha {
-	color: black;
+  color: black;
 }
 
 .container-pedidos {
-	background: #ffa500;
-	border: 2px solid orange;
-	border-radius: 0.6em;
-	flex-direction: column;
-	font-size: 1.5rem;
-	line-height: 1;
-	margin: 20px;
-	padding: 1.2em 2.8em;
-	text-align: center;
-	text-transform: uppercase;
-	font-family: 'Montserrat', sans-serif;
-	flex: 1;
+  background: #ffa500;
+  border: 2px solid orange;
+  border-radius: 0.6em;
+  flex-direction: column;
+  font-size: 1.5rem;
+  line-height: 1;
+  margin: 20px;
+  padding: 1.2em 2.8em;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  flex: 1;
 }
 
 .App-valor-total {
-	position: relative;
-	color: white;
-	font-size: 20px;
-	text-align: center;
+  position: relative;
+  color: white;
+  font-size: 20px;
+  text-align: center;
 }
 
-.App-text-pedidosProntos{
-	color: white;
-	text-align: center;
+.App-text-pedidosProntos {
+  color: white;
+  text-align: center;
 }
 
 .pedido {
-	display: flex;
-	margin-bottom: 10px;
+  display: flex;
+  margin-bottom: 10px;
 }
 
 .price {
-	margin-left: auto;
+  margin-left: auto;
 }
-

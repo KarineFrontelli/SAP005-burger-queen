@@ -1,14 +1,10 @@
-
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Header from "../../Components/Header";
 
-
 function Orders() {
   const token = localStorage.getItem("token");
   const [cozinha, setCozinha] = useState("");
-  const nomeCliente = sessionStorage.getItem("cliente");
-  const numeroMesa = sessionStorage.getItem("mesa");
   const back = useHistory();
 
   function BackPage() {
@@ -31,7 +27,6 @@ function Orders() {
       .then((json) => {
         const cozinha = json.filter((item) => item.status !== "pending");
         setCozinha(cozinha);
-        console.log(cozinha);
       });
   }, []);
 
@@ -41,7 +36,6 @@ function Orders() {
     const newId = parent.getAttribute("id");
     localStorage.setItem("id", newId);
     const idOrder = localStorage.getItem("id");
-    console.log(newId);
 
     fetch(`https://lab-api-bq.herokuapp.com/orders/${idOrder}`, {
       method: "DELETE",
@@ -55,19 +49,13 @@ function Orders() {
       },
     })
       .then((response) => response.json())
-      .then((json) => {
-        console.log(json);
-      });
+      .then((json) => {});
   };
-
- 
-
   return (
     <>
       <div>
         <Header />
       </div>
-
 
       <div className="btn-back">
         <p onClick={BackPage}>VOLTAR</p>
@@ -75,14 +63,11 @@ function Orders() {
 
       <h2 className="App-text-pedidosProntos">PEDIDOS PRONTOS</h2>
 
-
-      
       <section className="container-cozinha">
         {cozinha &&
           cozinha.map((item, index) => (
             <div id={item.id} className="container-itens" key={index}>
-              <p>{new Date(item.createdAt).toLocaleString()}</p>
-
+              <p>Pedido pronto: {new Date(item.updatedAt).toLocaleString()}</p>
               <p key={index}>Cliente: {item.client_name}</p>
               <p key={index}>Mesa: {item.table}</p>
               <p key={index}>Nº do pedido: {item.id}</p>
@@ -95,8 +80,6 @@ function Orders() {
                     {Products.name} {Products.flavor} {Products.complement}
                     {Products.qtd}
                   </p>
-
-          
                 ))}
                 <button
                   className="btn-entregue"

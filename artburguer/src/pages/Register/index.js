@@ -1,5 +1,5 @@
-import { React, useState } from "react";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import react, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import logo from "../../img/hamburgernovo.png";
 import "../../App.css";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
@@ -13,7 +13,6 @@ const App = () => {
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [role, setRole] = useState("");
   const [msg, setMsg] = useState("");
-  const rota = useHistory();
 
   const back = useHistory();
   const backLogin = () => {
@@ -90,11 +89,7 @@ const App = () => {
                   size="lg"
                   label="Nome *"
                   icon="user"
-                  group
                   type="text"
-                  validate
-                  error="wrong"
-                  success="right"
                   onChange={(event) => setName(event.target.value)}
                 />
               </div>
@@ -104,30 +99,24 @@ const App = () => {
                 label="Email *"
                 icon="envelope"
                 type="email"
-                error="wrong"
-                success="right"
                 onChange={(event) => setEmail(event.target.value)}
               />
-              <MDBInput
-                className="p-3 mb-2 bg-transparent text-white"
-                size="lg"
-                label="Confirme seu email *"
-                icon="exclamation-triangle"
-                group
-                type="email"
-                validate
-                error="wrong"
-                success="right"
-                onChange={(event) => setEmailConfirm(event.target.value)}
-              />
+              {
+                <MDBInput
+                  className="p-3 mb-2 bg-transparent text-white"
+                  size="lg"
+                  label="Confirme seu email *"
+                  icon="exclamation-triangle"
+                  type="email"
+                  onChange={(event) => setEmailConfirm(event.target.value)}
+                />
+              }
               <MDBInput
                 className="p-3 mb-2 bg-transparent text-white"
                 size="lg"
                 label="Senha *"
                 icon="lock"
-                group
                 type="password"
-                validate
                 onChange={(event) => setPassword(event.target.value)}
               />
               <MDBInput
@@ -135,9 +124,7 @@ const App = () => {
                 size="lg"
                 label="Confirme sua senha *"
                 icon="exclamation-triangle"
-                group
                 type="password"
-                validate
                 onChange={(event) => setPasswordConfirm(event.target.value)}
               />
             </div>
@@ -163,10 +150,8 @@ const App = () => {
               <MDBBtn color="orange" type="submit" onClick={cadastrar}>
                 Criar login
               </MDBBtn>
-              <div className="App-cadaster">
-                {msg !== "" && <p>{`${msg}`}</p>}
-              </div>
-              {msg !== "" && <p>{`${msg}`}</p>}
+
+              {msg !== "" && <p className="App-msgErro">{`${msg}`}</p>}
             </div>
             <Footer />
           </form>
