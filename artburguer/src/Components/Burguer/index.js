@@ -73,7 +73,7 @@ function MenuLunch() {
     })
       .then((response) => response.json())
       .then((json) => {
-       
+        alert("Pedido está sendo preparado!"); 
       });
     return total;
   };
