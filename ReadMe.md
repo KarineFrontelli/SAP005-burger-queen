@@ -3,7 +3,7 @@
 ## Art Burger :hamburger:
 
 Art Burger é uma hamburgueria 24 horas que está crescendo e precisava de uma aplicação para facilitar o trabalho da sua equipe, criando comunicação direta entre a equipe do salão e a da cozinha no que diz respeito aos pedidos de clientes. 
-[**Conheça a aplicação da Art Burger**](https://art-burger.vercel.app/) :hamburger:
+[**Conheça a aplicação da Art Burger**](https://artburger1.vercel.app/) :hamburger:
 
 Para acessar a cozinha use: 
 - E-mail: cozinha@artburger.com

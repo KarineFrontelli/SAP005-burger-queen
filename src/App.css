@@ -96,6 +96,7 @@ h3,
   color: white;
   margin-left: 10%;
   margin-right: 10%;
+  margin-bottom: 10%;
   text-align: center;
   text-decoration: underline;
 }
@@ -114,9 +115,10 @@ h3,
 }
 .App-footer {
   color: white;
-  position: fixed;
+  /* position: fixed; */
   bottom: 1rem;
   margin-left: 14%;
+  text-align: justify;
 }
 
 .container-breakfast {
