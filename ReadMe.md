@@ -1,4 +1,4 @@
-<div align="center"><img src="/artburguer/src/img/hamburgernovo.png" width="400"></div>
+<div align="center"><img src="/src/img/hamburgernovo.png" width="400"></div>
 
 ## Art Burger :hamburger:
 
@@ -40,25 +40,25 @@ Neste projeto começamos a aprender React.Js.
 
 ## 2. Apresentação da Aplicação:pencil2:
 
-A aplicação foi desenvolvida usanso o React.Js para fazer a manipulação de DOM  e renderização da aplicação. 
+A aplicação foi desenvolvida usando o React.Js para fazer a manipulação de DOM  e renderização da aplicação. 
 Utilizando o React-Router criou-se uma SPA (single page aplication) de maneira que a navegação na aplicação ficasse mais rápida para o usuário.
 >A primeira tela apresentada é a tela de login, que dá a possibilidade de o usuário cadastrado entrar na aplicação com email e senha. Já para o novo usuário, a tela dá a opção de ser redirecionado para a tela de cadastro.
-<div align="center"><img src="artburguer/src/img/login.png" width="300"></div>
+<div align="center"><img src="src/img/login.png" width="300"></div>
 
 >Na tela de cadastro o usuário deve informar se trabalha na cozinha ou no salão para ser redirecionado para a página correta quando entrar na aplicação.
-<div align="center"><img src="artburguer/src/img/cadastro.png" width="300"></div>
+<div align="center"><img src="src/img/cadastro.png" width="300"></div>
 
 > Os garçons são redirecionados para uma tela de transição quando fazem o login. Nessa tela têm a possibilidade de escolher se vão gerar um novo pedido ou se vão visualizar os pedidos prontos para ser entregues.
 
-<div align="center"><img src="artburguer/src/img/salao.png" width="300"></div>
+<div align="center"><img src="src/img/salao.png" width="300"></div>
 
 >Na tela NOVO PEDIDO os garçons podem fazer pedidos escolhendo entre dois cardápios.
 
-<div align="center"><img src="artburguer/src/img/pedido-novo.png" width="300"></div>
+<div align="center"><img src="src/img/pedido-novo.png" width="300"></div>
 
 >A equipe da cozinha, quando faz o login na aplicação, é redirecionada para a página de pedidos pendentes onde consegue visualizar os pedidos que precisam ser preparados e marcar como prontos conforme terminam de preparar.
 
-<div align="center"><img src="artburguer/src/img/pedidos-pendentes.png" width="300"></div>
+<div align="center"><img src="src/img/pedidos-pendentes.png" width="300"></div>
 
 
 
@@ -68,12 +68,12 @@ A marca Art Burger foi pensada para ser uma marca moderna, que dialoga com o pú
 O grafite está presente na logo da marca e também é usado dentro da aplicação.
 
 
-<div align="center"><img src="/artburguer/src/img/hamburgernovo.png" width="200"></div>
+<div align="center"><img src="/src/img/hamburgernovo.png" width="200"></div>
   
 ### Paleta de Cores :art:
 
 Partindo da _logo_ da hamburgueria e pensando na sua identidade visual, a seguinte paleta de cores foi usada para a execução do projeto: 
-![Paletadecores](/artburguer/src/img/paleta-artburguer.png)
+![Paletadecores](/src/img/paleta-artburguer.png)
 
 ## 4. Desenvolvimento :clipboard:
 
@@ -117,7 +117,8 @@ Para o desenvolvimento do projeto utilizamos as seguintes ferramentas:
 :pushpin: Javascript<br>
 :pushpin: React.Js<br>
 :pushpin: Material UI<br>
-:pushpin: Mdb Bootstrap
+:pushpin: Mdb Bootstrap<br>
+:pushpin: Vercel
 
 
 
