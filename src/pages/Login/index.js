@@ -98,10 +98,11 @@ const AppLogin = () => {
               <Link to="/register">Cadastre-se</Link>
             </div>
             {msg !== "" && <p className="App-msgErro">{`${msg}`}</p>}
-            <Footer />
+            
           </form>
         </MDBCol>
       </MDBRow>
+      <Footer />
     </MDBContainer>
   );
 };

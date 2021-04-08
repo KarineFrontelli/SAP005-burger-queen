@@ -32,10 +32,10 @@ const WelcomePage = () => {
             </button>
           </div>
         </section>
-        <footer>
-          <Footer />
-        </footer>
       </div>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 };
