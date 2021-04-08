@@ -6,12 +6,12 @@ Art Burger é uma hamburgueria 24 horas que está crescendo e precisava de uma a
 [**Conheça a aplicação da Art Burger**](https://art-burger.vercel.app/) :hamburger:
 
 Para acessar a cozinha use: 
-E-mail: cozinha@artburger.com
-Senha:  123456
+- E-mail: cozinha@artburger.com
+- Senha:  123456
 
 Para acessar o salão use:
-E-mail: salao@artburger.com
-Senha: 123456
+- E-mail: salao@artburger.com
+- Senha: 123456
 
 > Status do Projeto: Concluído :heavy_check_mark:
 
