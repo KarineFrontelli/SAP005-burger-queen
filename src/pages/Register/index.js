@@ -128,7 +128,7 @@ const App = () => {
                 onChange={(event) => setPasswordConfirm(event.target.value)}
               />
             </div>
-            <p className="App-atuacao">Escolha aréa de atuação</p>
+            <p className="App-atuacao">Escolha área de atuação</p>
             <div className="text-center">
               <MDBBtn
                 color="white"

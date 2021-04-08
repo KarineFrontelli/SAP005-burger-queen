@@ -115,10 +115,9 @@ h3,
 }
 .App-footer {
   color: white;
-  /* position: fixed; */
   bottom: 1rem;
-  margin-left: 14%;
-  text-align: justify;
+  margin-top: 14%;
+  text-align: center;
 }
 
 .container-breakfast {
